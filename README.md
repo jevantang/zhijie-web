@@ -1,209 +1,48 @@
-<p align="center"><a href="https://fresns.org" target="_blank"><img src="https://raw.githubusercontent.com/fresns/docs/main/images/Fresns-Logo(orange).png" width="300"></a></p>
+<p align="center"><a href="https://fresns.cn" target="_blank"><img src="https://cdn.fresns.cn/images/logo.png" width="300"></a></p>
 
 <p align="center">
-<img src="https://img.shields.io/badge/Fresns-%5E2.0-orange" alt="Fresns">
-<img src="https://img.shields.io/badge/WebFrame-%5E3.0-blueviolet" alt="WebFrame">
+<img src="https://img.shields.io/badge/WeChat-Mini%20Program-blueviolet" alt="WeChat">
+<img src="https://img.shields.io/badge/Fresns%20API-2.x-orange" alt="Fresns API">
 <img src="https://img.shields.io/badge/License-Apache--2.0-green" alt="License">
 </p>
 
-[简体中文](README_zh-Hans.md) | [繁體中文](README_zh-Hant.md)
+## 介绍
 
-# Introduction
+知结是一个互联网从业者的资讯社区，由开源程序 [Fresns](https://fresns.cn) 驱动，有网站、微信小程序、iOS App 和 Android App 全端产品。
 
-This is a client program developed with a plugin mechanism, running by being installed in the main program through a plugin method, and it references the Composer [web-engine](https://github.com/fresns/web-engine) extension package. Essentially, it is a plugin that, in addition to the default encapsulated functions, can develop any function according to the plugin mechanism.
+知结社区聚合了职业、产品、行业、公司和人物等互联网领域的各类资讯，通过圈子和话题将信息分门别类，用户可以关注用户、加入圈子、订阅话题等三种方式，将自己感兴趣的领域信息聚合到自己的时间线列表精选阅读（只有精选内容才会进入关注的信息流）。
 
-The following view and configuration function development are all pre-encapsulated functions that can be used directly.
+知结的目标是信息降噪、高效阅读、主动式筛选，让我们每天刷几分钟就能知道科技圈的大小事。
 
-## Preview
+## 技术方案
 
-### WebFrame
+### 服务端
 
-![WebFrame](https://files.fresns.org/wiki/previews/WebFrame.png)
+- 知结服务端由 [Fresns](https://fresns.cn) 驱动。
+- Fresns 官网 [https://fresns.cn](https://fresns.cn)
 
-- Fresns view framework to showcase web-side functionality and interaction flow.
-- [https://marketplace.fresns.com/open-source/detail/WebFrame](https://marketplace.fresns.com/open-source/detail/WebFrame)
+### Web 客户端
+- 源码: [https://marketplace.fresns.cn/open-source/detail/ZhijieWeb](https://marketplace.fresns.cn/open-source/detail/ZhijieWeb)
+- Web 是以 [Fresns 插件机制](https://docs.fresns.cn/extensions/plugin/)开发的一个客户端插件，安装在 Fresns 主程序中运行。
+- 体验: 直接打开官网链接 [https://zhijieshequ.com](https://zhijieshequ.com)
 
-### Moments
+### App 客户端
 
-![Moments](https://files.fresns.org/wiki/previews/Moments.png)
+- 源码: [https://marketplace.fresns.cn/open-source/detail/ZhijieApp](https://marketplace.fresns.cn/open-source/detail/ZhijieApp)
+- App 是基于 [Fresns App for WeChat Mini Program](https://github.com/fresns/wechat) 框架版微信小程序二次定制开发，使用微信原生语言，采用 Donut 跨端方案编译为 iOS 和 Android 应用。
+- 体验: 扫描下方二维码即可下载
+    - iOS App: [https://apps.apple.com/cn/app/知结/id6462404756](https://apps.apple.com/cn/app/%E7%9F%A5%E7%BB%93/id6462404756)
+    - Android App: [https://zhijieshequ.com/app/latest.apk](https://zhijieshequ.com/app/latest.apk)
 
-- A minimalist theme in the form of information flow as an experience, with responsive design, adaptive to computers, tablets, mobile devices.
-- [https://marketplace.fresns.com/open-source/detail/Moments](https://marketplace.fresns.com/open-source/detail/Moments)
+![知结社区 App](https://cdn.fresns.cn/zhijie/app-qrcode.png)
 
-## View Development
+### 微信小程序
 
-The user-end view interface is based on the Laravel Blade scheme, with files located in `resources/views`, used by the [web-engine](https://github.com/fresns/web-engine) extension package's routing. Please refer to the documentation of the [web-engine](https://github.com/fresns/web-engine) extension package for development.
+- 源码: [https://marketplace.fresns.cn/open-source/detail/ZhijieApp](https://marketplace.fresns.cn/open-source/detail/ZhijieApp)
+- 体验: 使用微信扫描下方小程序码
 
-- Path Structure [https://github.com/fresns/web-engine#path-structure](https://github.com/fresns/web-engine#path-structure)
-- View Tags [https://github.com/fresns/web-engine#view-tags](https://github.com/fresns/web-engine#view-tags)
+![知结社区小程序](https://cdn.fresns.cn/zhijie/miniprogram.png)
 
-## Configuration Development
+## 许可协议
 
-The configuration function of this client is also based on the Laravel Blade scheme, and the view file is `resources/views/functions.blade.php`
-
-### Settings Page
-
-The access address of the settings page is composed of "route name" and "path name", with the route name configured in the file `app/Config/ConfigInfo.php`
-
-For example, if the route name is `web-frame`, plus the path name `admin` of the settings page, the final address of the settings page is `/web-frame/admin`
-
-### Configuration Items
-
-Configuration items are stored in the [configs](https://fresns.org/database/systems/configs.html) data table, and all parameter formats are the same as the data table fields.
-
-- Configuration Item List `app/Config/ConfigInfo.php` const `ITEMS`
-- Configuration Item Format Reference [https://fresns.org/supports/utilities/config.html](https://fresns.org/supports/utilities/config.html)
-
-### Multi-language for Settings Page
-
-If you need to support multiple languages, the language files are in the `resources/lang/` directory.
-
-Usage: `{{ __('WebFrame::fresns.name') }}`
-
-Where `WebFrame` is the namespace name, configured in `app/Config/ConfigInfo.php` const `WebFrame`
-
-### View Setting Function
-
-Setting the view file of the function `resources/views/functions.blade.php`
-
-**Introduction to View Functions**
-
-The view settings file, which is responsible for defining the view's own configuration items, has four configuration types.
-
-- 1. General form tag: Type is input, textarea, select
-- 2. Upload file html tag: Type is input type="file"
-- 3. Multilingual html tag: Type is input or textarea
-- 4. associated plugin html tag: Type is select or select multiple
-
-**form**
-
-```html
-<form action="{{ route('web-frame.admin.update') }}" method="post" enctype="multipart/form-data">
-    @csrf
-    @method('put')
-
-    <!-- input: item_key=fs_theme_name -->
-    <input type="text" name="fs_theme_name" value="{{ $params['fs_theme_name']['value'] ?? '' }}">
-
-    <!-- textarea: item_key=fs_theme_intro -->
-    <textarea name="fs_theme_intro">{{ $params['fs_theme_intro']['value'] ?? '' }}</textarea>
-
-    <!-- input file: item_key=fs_theme_logo -->
-    <input type="hidden" name="fs_theme_logo" value="{{ $params['fs_theme_logo']['value'] }}">
-    <input type="file" name="fs_theme_logo_file">
-    <input type="url" name="fs_theme_logo_url">
-
-    <!-- select: item_key=fs_theme_type -->
-    <select name="fs_theme_type">
-        <option value="">Null</option>
-        <option value="1">One</option>
-        <option value="2">Two</option>
-    </select>
-
-    <!-- select multiple: item_key=fs_theme_types -->
-    <select name="fs_theme_types" multiple>
-        <option value="">Null</option>
-        <option value="1">One</option>
-        <option value="2">Two</option>
-    </select>
-
-    <!-- plugin select multiple: item_key=fs_theme_plugins -->
-    @foreach($params['fs_theme_plugins']['value'] ?? [] as $key => $item)
-        <input type="text" name="fs_theme_plugins[{{$key}}][code]">
-        <select name="fs_theme_plugins[{{$key}}][plugin]">
-            <option value="">Null</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-        </select>
-        <input type="number" name="fs_theme_plugins[{{$key}}][order]">
-    @endforeach
-
-    <button type="submit">Save</button>
-</form>
-
-<!-- plugin select multiple: template -->
-<template id="pluginTemplate">
-    <input type="text" class="plugin-code" name="">
-    <select class="plugin-fskey" name="">
-        <option selected disabled>Please select the plugin</option>
-        <option value="">Null</option>
-        <option value="1">One</option>
-        <option value="2">Two</option>
-    </select>
-    <input type="number" class="plugin-order" name="">
-</template>
-```
-
-**Multilingual form: input**
-
-```html
-<!-- Get multilingual data -->
-{{ json_encode($params['fs_theme_title']['language_values'] ?? []) }}
-
-<!-- Value of the default language -->
-{{ $params['fs_theme_title']['value'] ?? '' }}
-```
-
-```html
-<!-- model(multi-language input): item_key=fs_theme_title -->
-<form action="{{ route('web-frame.admin.update.languages') }}" method="post">
-    @csrf
-    @method('put')
-
-    <input type="hidden" name="itemKey" value="fs_theme_title">
-
-    @foreach ($optionalLanguages as $lang)
-        {{ $lang['langTag'] }}
-        {{ $lang['langName'] }}
-
-        @if ($lang['areaName'])
-            {{ '('.$lang['areaName'].')' }}
-        @endif
-
-        @if ($lang['langTag'] == $defaultLanguage) Default Language @endif
-
-        <input type="text" name="languages[{{ $lang['langTag'] }}]" value="{{ $params['fs_company_name']['language_values'][$lang['langTag']] ?? '' }}">
-    @endforeach
-
-    <button type="submit">Save</button>
-</form>
-```
-
-**Multilingual form: textarea**
-
-```html
-<!-- Get multilingual data -->
-{{ json_encode($params['fs_theme_desc']['language_values'] ?? []) }}
-
-<!-- Value of the default language -->
-{{ $params['fs_theme_desc']['value'] ?? '' }}
-```
-
-```html
-<!-- model(multi-language textarea): item_key=fs_theme_desc -->
-<form action="{{ route('web-frame.admin.update.languages') }}" method="post">
-    @csrf
-    @method('put')
-
-    <input type="hidden" name="itemKey" value="fs_theme_desc">
-
-    @foreach ($optionalLanguages as $lang)
-        {{ $lang['langTag'] }}
-        {{ $lang['langName'] }}
-
-        @if ($lang['areaName'])
-            {{ '('.$lang['areaName'].')' }}
-        @endif
-
-        @if ($lang['langTag'] == $defaultLanguage) Default Language @endif
-
-        <textarea name="languages[{{ $lang['langTag'] }}]">{{ $params['fs_company_name']['language_values'][$lang['langTag']] ?? '' }}</textarea>
-    @endforeach
-
-    <button type="submit">Save</button>
-</form>
-```
-
-## License
-
-Fresns Website is open-sourced software licensed under the [Apache-2.0 license](https://opensource.org/licenses/Apache-2.0).
+Fresns 是根据 [Apache-2.0](https://opensource.org/license/apache-2-0/) 授权的开源软件。
