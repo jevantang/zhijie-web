@@ -3,7 +3,7 @@
     $appSchemeHome = $appScheme.'://'.(fs_db_config('zhijie_app')['path']['post'] ?? '');
     $appPath = '';
 
-    if (Route::is('fresns.profile.*')) {
+    if (Route::is('fresns.profile.*') && isset($profile)) {
         $appPath = (fs_db_config('zhijie_app')['path']['userDetail'] ?? '').$profile['fsid'];
     }
 
@@ -11,19 +11,19 @@
         $appPath = fs_db_config('zhijie_app')['path']['group'] ?? '';
     }
 
-    if (Route::is('fresns.group.detail')) {
+    if (Route::is('fresns.group.detail' && isset($group))) {
         $appPath = (fs_db_config('zhijie_app')['path']['groupDetail'] ?? '').$group['gid'];
     }
 
-    if (Route::is('fresns.hashtag.detail')) {
+    if (Route::is('fresns.hashtag.detail' && isset($hashtag))) {
         $appPath = (fs_db_config('zhijie_app')['path']['hashtagDetail'] ?? '').$hashtag['hid'];
     }
 
-    if (Route::is('fresns.post.detail')) {
+    if (Route::is('fresns.post.detail' && isset($post))) {
         $appPath = (fs_db_config('zhijie_app')['path']['postDetail'] ?? '').$post['pid'];
     }
 
-    if (Route::is('fresns.comment.detail')) {
+    if (Route::is('fresns.comment.detail' && isset($comment))) {
         $appPath = (fs_db_config('zhijie_app')['path']['commentDetail'] ?? '').$comment['cid'];
     }
 @endphp
