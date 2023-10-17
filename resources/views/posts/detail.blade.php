@@ -45,9 +45,7 @@
                                 'sectionAuthorLiked' => true,
                             ])@endcomponent
 
-                            @if (! $loop->last)
-                                <hr>
-                            @endif
+                            <hr>
                         @endforeach
                     </article>
 
