@@ -21,9 +21,9 @@
             <p class="mb-0"><a href="https://beian.miit.gov.cn/" target="_blank" rel="nofollow" class="link-secondary">{{fs_db_config('china_icp_filing')}}</a></p>
         @endif
 
-        @if (fs_db_config('china_psb_filing'))
+        @if (fs_db_config('china_mps_filing'))
             <p class="mb-0">
-                <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode={{ Str::of(fs_db_config('china_psb_filing'))->match('/\d+/') }}" target="_blank" rel="nofollow" class="link-secondary">{{ fs_db_config('china_psb_filing') }}</a>
+                <a href="https://beian.mps.gov.cn/#/query/webSearch?code={{ Str::of(fs_db_config('china_mps_filing'))->match('/\d+/') }}" target="_blank" rel="nofollow" class="link-secondary">{{ fs_db_config('china_mps_filing') }}</a>
             </p>
         @endif
 

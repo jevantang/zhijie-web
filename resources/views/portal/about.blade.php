@@ -29,8 +29,8 @@
                     <p class="mb-0">{{fs_db_config('china_icp_filing')}}</p>
                 @endif
 
-                @if (fs_db_config('china_psb_filing'))
-                    <p class="mb-0">{{ fs_db_config('china_psb_filing') }}</p>
+                @if (fs_db_config('china_mps_filing'))
+                    <p class="mb-0">{{ fs_db_config('china_mps_filing') }}</p>
                 @endif
 
                 @if (fs_db_config('china_icp_license'))
