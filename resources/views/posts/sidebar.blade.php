@@ -35,7 +35,7 @@
     <div class="card border-0 shadow-sm mb-4">
         <div class="card-header fw-medium">{{ fs_db_config('menu_post_list_name') }}</div>
         <ul class="list-group list-group-flush">
-            @foreach(fs_index_list('posts') as $topPost)
+            @foreach(fs_list('posts') as $topPost)
                 <a href="{{ fs_route(route('fresns.post.detail', ['pid' => $topPost['pid']])) }}" class="list-group-item list-group-item-action">
                     {{ $topPost['title'] ?? Str::limit(strip_tags($topPost['content']), 80) }}
                 </a>
