@@ -49,7 +49,7 @@
     </section>
 
     {{-- Post Main --}}
-    <section class="content-main order-2 mx-3 position-relative">
+    <section class="content-main order-2 mx-3 mb-3 position-relative">
         {{-- Title --}}
         <div class="content-title d-flex flex-row bd-highlight">
             {{-- Title Icon --}}

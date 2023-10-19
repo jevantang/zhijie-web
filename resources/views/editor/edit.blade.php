@@ -128,29 +128,6 @@
                                 'isAnonymous' => $draft['detail']['isAnonymous'],
                             ])@endcomponent
                         @endif
-
-                        {{-- comment disable and private --}}
-                        @if ($type == 'post')
-                            <div class="form-check ms-3">
-                                <input class="form-check-input" type="checkbox" name="postIsCommentDisabled" value="1" id="postIsCommentDisabled" {{ $draft['detail']['isCommentDisabled'] ? 'checked' : '' }}>
-                                <label class="form-check-label" for="postIsCommentDisabled">
-                                    {{ fs_lang('editorCommentDisable') }}
-                                </label>
-                            </div>
-
-                            <div class="form-check ms-3">
-                                <input class="form-check-input" type="checkbox" name="postIsCommentPrivate" value="1" id="postIsCommentPrivate" {{ $draft['detail']['isCommentPrivate'] ? 'checked' : '' }}>
-                                <label class="form-check-label" for="postIsCommentPrivate">
-                                    {{ fs_lang('editorCommentPrivate') }}
-                                </label>
-                            </div>
-                        @endif
-
-                        {{-- Markdown --}}
-                        <div class="form-check ms-3">
-                            <input class="form-check-input" type="checkbox" name="isMarkdown" value="1" id="isMarkdown" {{ $draft['detail']['isMarkdown'] ? 'checked' : '' }}>
-                            <label class="form-check-label" for="isMarkdown">Markdown</label>
-                        </div>
                     </div>
                     {{-- Location and Anonymous: End --}}
                 </div>
