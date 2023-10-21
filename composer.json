@@ -16,6 +16,6 @@
         }
     },
     "require": {
-        "fresns/web-engine": "^3.0"
+        "fresns/web-engine": "^3.1"
     }
 }
