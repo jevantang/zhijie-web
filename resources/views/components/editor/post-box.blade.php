@@ -194,7 +194,7 @@
                     });
                 }
 
-                if (data.paginate.currentPage === 1){
+                if (data.pagination.currentPage === 1){
                     $('#fresns-post-box-groups .list-group').each(function (){
                         $(this).empty();
                         $(this).next().empty();
@@ -205,7 +205,7 @@
                 $('#fresns-post-box-groups .list-group').append(html);
 
                 $('#fresns-post-box-groups .list-group-addmore').empty();
-                if (data.paginate.currentPage < data.paginate.lastPage) {
+                if (data.pagination.currentPage < data.pagination.lastPage) {
                     let addMoreHtml = `<a href="javascript:void(0)"  class="add-more" onclick="boxAjaxGetGroupList('${action}', ${pageSize}, ${page})">{{ fs_lang('clickToLoadMore') }}</a>`;
                     $('#fresns-post-box-groups .list-group-addmore').append(addMoreHtml);
                 }

@@ -563,7 +563,7 @@ window.buildAjaxAndSubmit = function (url, body, succeededCallback, failedCallba
                     $(modal).find('.file-download-user .file-user-list').html('');
                     return;
                 }
-                if (res.data && res.data.paginate.total > 30) {
+                if (res.data && res.data.pagination.total > 30) {
                     $(modal).find('.file-download-user .text-muted').css('display', 'block');
                 }
 
@@ -1597,8 +1597,8 @@ $(function () {
                 $('#fresns-list-container').append(response.html);
 
                 // Update current page number and last page code
-                currentPage = response.paginate.currentPage;
-                lastPage = response.paginate.lastPage;
+                currentPage = response.pagination.currentPage;
+                lastPage = response.pagination.lastPage;
 
                 // If it is the last page, the text of "no more" is displayed
                 if (currentPage >= lastPage) {
