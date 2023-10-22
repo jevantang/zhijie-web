@@ -95,8 +95,8 @@
                                         <td>{{ $log['openingBalance'] }}</td>
                                         <td>{{ $log['closingBalance'] }}</td>
                                         <td>
-                                            <time class="text-secondary" datetime="{{ $log['createdDatetime'] }}" data-bs-toggle="tooltip" data-bs-placement="bottom" title="{{ $log['createdDatetime'] }}">
-                                                {{ $log['createdTimeAgo'] }}
+                                            <time class="text-secondary" datetime="{{ $log['datetime'] }}" data-bs-toggle="tooltip" data-bs-placement="bottom" title="{{ $log['datetime'] }}">
+                                                {{ $log['timeAgo'] }}
                                             </time>
                                         </td>
                                         <td>{{ $log['remark'] }}</td>

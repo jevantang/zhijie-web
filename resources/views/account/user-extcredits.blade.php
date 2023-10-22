@@ -41,8 +41,8 @@
                                         <td>{{ $log['fskey'] }}</td>
                                         <td>{{ $log['remark'] }}</td>
                                         <td>
-                                            <time class="text-secondary" datetime="{{ $log['createdDatetime'] }}" data-bs-toggle="tooltip" data-bs-placement="bottom" title="{{ $log['createdDatetime'] }}">
-                                                {{ $log['createdTimeAgo'] }}
+                                            <time class="text-secondary" datetime="{{ $log['datetime'] }}" data-bs-toggle="tooltip" data-bs-placement="bottom" title="{{ $log['datetime'] }}">
+                                                {{ $log['timeAgo'] }}
                                             </time>
                                         </td>
                                     </tr>
