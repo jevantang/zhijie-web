@@ -4,7 +4,7 @@
     "description": "一款以信息流为体验形式的极简风格网站端，精简了大量功能，仅作为信息展示和 App 引流使用。",
     "author": "知结",
     "authorLink": "https://zhijieshequ.com",
-    "version": "1.1.0",
+    "version": "1.2.0",
     "scene": [
         "website"
     ],
