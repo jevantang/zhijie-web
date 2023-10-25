@@ -128,6 +128,12 @@
                                 'isAnonymous' => $draft['detail']['isAnonymous'],
                             ])@endcomponent
                         @endif
+
+                        {{-- Markdown --}}
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="isMarkdown" value="1" id="isMarkdown" {{ $draft['detail']['isMarkdown'] ? 'checked' : '' }}>
+                            <label class="form-check-label" for="isMarkdown">{{ fs_lang('editorContentMarkdown') }}</label>
+                        </div>
                     </div>
                     {{-- Location and Anonymous: End --}}
                 </div>
