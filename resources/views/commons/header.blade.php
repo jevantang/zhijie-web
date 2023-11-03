@@ -11,19 +11,19 @@
         $appPath = fs_db_config('zhijie_app')['path']['group'] ?? '';
     }
 
-    if (Route::is('fresns.group.detail' && isset($group))) {
+    if (Route::is('fresns.group.detail') && isset($group)) {
         $appPath = (fs_db_config('zhijie_app')['path']['groupDetail'] ?? '').$group['gid'];
     }
 
-    if (Route::is('fresns.hashtag.detail' && isset($hashtag))) {
+    if (Route::is('fresns.hashtag.detail') && isset($hashtag)) {
         $appPath = (fs_db_config('zhijie_app')['path']['hashtagDetail'] ?? '').$hashtag['hid'];
     }
 
-    if (Route::is('fresns.post.detail' && isset($post))) {
+    if (Route::is('fresns.post.detail') && isset($post)) {
         $appPath = (fs_db_config('zhijie_app')['path']['postDetail'] ?? '').$post['pid'];
     }
 
-    if (Route::is('fresns.comment.detail' && isset($comment))) {
+    if (Route::is('fresns.comment.detail') && isset($comment)) {
         $appPath = (fs_db_config('zhijie_app')['path']['commentDetail'] ?? '').$comment['cid'];
     }
 @endphp
