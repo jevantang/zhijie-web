@@ -6,14 +6,14 @@
     @endif
     <div class="flex-grow-1 ms-3">
         <header class="d-lg-flex">
-            <section class="d-flex">
-                {{ $group['gname'] }}
+            <section class="d-flex mb-1 mb-lg-0">
+                <b>{{ $group['gname'] }}</b>
                 @if ($group['recommend'])
                     <img src="/assets/ZhijieWeb/images/icon-recommend.png" class="list-recommend" loading="lazy" alt="{{ fs_lang('contentRecommend') }}">
                 @endif
             </section>
 
-            <section class="list-btn ms-auto">
+            <section class="list-btn ms-auto d-none d-lg-block">
                 {{-- Like --}}
                 @if ($group['interaction']['likeSetting'])
                     @component('components.group.mark.like', [
@@ -71,4 +71,4 @@
     </div>
 </article>
 
-<section class="fs-7 text-secondary lh-base mt-1 p-3">{!! nl2br($group['description']) !!}</section>
+<section class="fs-7 text-secondary lh-base p-3">{!! nl2br($group['description']) !!}</section>

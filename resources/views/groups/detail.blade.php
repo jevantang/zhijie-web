@@ -9,20 +9,22 @@
         <div class="row mt-4 pt-5">
             {{-- Left Sidebar --}}
             <div class="col-lg-3">
-                <div class="card border-0 shadow-sm mb-4">
+                <div class="card border-0 shadow-sm mt-4 mt-lg-0">
                     @component('components.group.detail', compact('group'))@endcomponent
                 </div>
 
-                <div class="d-grid gap-2 mb-3">
-                    @if (fs_db_config('zhijie_quick_publish'))
-                        <button class="btn btn-outline-primary" type="button" data-bs-toggle="modal" data-bs-target="#createModal"><i class="bi bi-plus-circle-dotted"></i> {{ fs_db_config('publish_post_name') }}</button>
-                    @else
-                        <a class="btn btn-outline-primary" role="button" href="{{ fs_route(route('fresns.editor.index', ['type' => 'post'])) }}"><i class="bi bi-plus-circle-dotted"></i> {{ fs_db_config('publish_post_name') }}</a>
-                    @endif
+                <div class="d-none d-lg-block">
+                    <div class="d-grid gap-2 mt-4">
+                        @if (fs_db_config('zhijie_quick_publish'))
+                            <button class="btn btn-outline-primary" type="button" data-bs-toggle="modal" data-bs-target="#createModal" @if (!fs_user()->check()) disabled @endif><i class="bi bi-plus-circle-dotted"></i> {{ fs_db_config('publish_post_name') }}</button>
+                        @else
+                            <a class="btn btn-outline-primary" role="button" href="{{ fs_route(route('fresns.editor.index', ['type' => 'post'])) }}"><i class="bi bi-plus-circle-dotted"></i> {{ fs_db_config('publish_post_name') }}</a>
+                        @endif
+                    </div>
                 </div>
 
                 {{-- extensions --}}
-                <div class="clearfix mb-3">
+                <div class="clearfix mb-4">
                     @foreach($items['extensions'] as $extension)
                         <div class="float-start mb-3" style="width:20%">
                             <a class="text-decoration-none" data-bs-toggle="modal" href="#fresnsModal"
@@ -48,7 +50,7 @@
             </div>
 
             {{-- Middle --}}
-            <div class="col-md-8 col-lg-6 pt-4 pt-lg-0">
+            <div class="col-md-8 col-lg-6">
                 {{-- Sticky Posts --}}
                 @if (fs_sticky_posts($group['gid']))
                     <div class="list-group mb-3">
