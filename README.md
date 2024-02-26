@@ -1,4 +1,4 @@
-<p align="center"><a href="https://fresns.cn" target="_blank"><img src="https://cdn.fresns.cn/images/logo.png" width="300"></a></p>
+<p align="center"><a href="https://fresns.cn" target="_blank"><img src="https://assets.fresns.cn/logos/fresns.png" width="300"></a></p>
 
 <p align="center">
 <img src="https://img.shields.io/badge/WeChat-Mini%20Program-blueviolet" alt="WeChat">
@@ -22,26 +22,26 @@
 - Fresns 官网 [https://fresns.cn](https://fresns.cn)
 
 ### Web 客户端
-- 源码: [https://marketplace.fresns.cn/open-source/detail/ZhijieWeb](https://marketplace.fresns.cn/open-source/detail/ZhijieWeb)
-- Web 是以 [Fresns 插件机制](https://docs.fresns.cn/extensions/plugin/)开发的一个客户端插件，安装在 Fresns 主程序中运行。
+- 源码: [https://marketplace.fresns.cn/clients/detail/ZhijieWeb](https://marketplace.fresns.cn/clients/detail/ZhijieWeb)
+- Web 是以 [Fresns 插件机制](https://docs.fresns.com/zh-Hans/open-source/extensions/)开发的一个客户端插件，安装在 Fresns 主程序中运行。
 - 体验: 直接打开官网链接 [https://zhijieshequ.com](https://zhijieshequ.com)
 
 ### App 客户端
 
-- 源码: [https://marketplace.fresns.cn/open-source/detail/ZhijieApp](https://marketplace.fresns.cn/open-source/detail/ZhijieApp)
+- 源码: [https://marketplace.fresns.cn/clients/detail/ZhijieApp](https://marketplace.fresns.cn/clients/detail/ZhijieApp)
 - App 是基于 [Fresns App for WeChat Mini Program](https://github.com/fresns/wechat) 框架版微信小程序二次定制开发，使用微信原生语言，采用 Donut 跨端方案编译为 iOS 和 Android 应用。
 - 体验: 扫描下方二维码即可下载
     - iOS App: [https://apps.apple.com/cn/app/知结/id6462404756](https://apps.apple.com/cn/app/%E7%9F%A5%E7%BB%93/id6462404756)
     - Android App: [https://zhijieshequ.com/app/latest.apk](https://zhijieshequ.com/app/latest.apk)
 
-![知结社区 App](https://cdn.fresns.cn/zhijie/app-qrcode.png)
+![知结社区 App](https://assets.fresns.cn/zhijie/app-qrcode.png)
 
 ### 微信小程序
 
-- 源码: [https://marketplace.fresns.cn/open-source/detail/ZhijieApp](https://marketplace.fresns.cn/open-source/detail/ZhijieApp)
+- 源码: [https://marketplace.fresns.cn/clients/detail/ZhijieApp](https://marketplace.fresns.cn/clients/detail/ZhijieApp)
 - 体验: 使用微信扫描下方小程序码
 
-![知结社区小程序](https://cdn.fresns.cn/zhijie/miniprogram.png)
+![知结社区小程序](https://assets.fresns.cn/zhijie/miniprogram.png)
 
 ## 许可协议
 
