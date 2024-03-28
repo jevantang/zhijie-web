@@ -1,8 +1,8 @@
 <p align="center"><a href="https://fresns.cn" target="_blank"><img src="https://assets.fresns.cn/logos/fresns.png" width="300"></a></p>
 
 <p align="center">
-<img src="https://img.shields.io/badge/WeChat-Mini%20Program-blueviolet" alt="WeChat">
-<img src="https://img.shields.io/badge/Fresns%20API-2.x-orange" alt="Fresns API">
+<img src="https://img.shields.io/badge/Fresns-%5E3.0-orange" alt="Fresns">
+<img src="https://img.shields.io/badge/WebEngine-%5E4.0-blueviolet" alt="WebEngine">
 <img src="https://img.shields.io/badge/License-Apache--2.0-green" alt="License">
 </p>
 
@@ -23,7 +23,6 @@
 
 ### Web 客户端
 - 源码: [https://marketplace.fresns.cn/clients/detail/ZhijieWeb](https://marketplace.fresns.cn/clients/detail/ZhijieWeb)
-- Web 是以 [Fresns 插件机制](https://docs.fresns.com/zh-Hans/open-source/extensions/)开发的一个客户端插件，安装在 Fresns 主程序中运行。
 - 体验: 直接打开官网链接 [https://zhijieshequ.com](https://zhijieshequ.com)
 
 ### App 客户端

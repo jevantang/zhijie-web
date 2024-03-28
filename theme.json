@@ -1,0 +1,145 @@
+{
+    "fskey": "ZhijieWeb",
+    "name": "Zhijie Web",
+    "description": "一款以信息流为体验形式的极简风格网站端，精简了大量功能，仅作为信息展示和 App 引流使用。",
+    "author": "知结",
+    "authorLink": "https://zhijieshequ.com",
+    "version": "2.0.0",
+    "functions": true,
+    "functionItems": [
+        {
+            "itemKey": "zhijie_loading",
+            "itemType": "boolean",
+            "isMultilingual": false
+        },
+        {
+            "itemKey": "zhijie_quick_publish",
+            "itemType": "boolean",
+            "isMultilingual": false
+        },
+        {
+            "itemKey": "zhijie_notifications",
+            "itemType": "array",
+            "isMultilingual": false
+        },
+        {
+            "itemKey": "zhijie_company_name",
+            "itemType": "object",
+            "isMultilingual": true
+        },
+        {
+            "itemKey": "zhijie_slogan",
+            "itemType": "object",
+            "isMultilingual": true
+        },
+        {
+            "itemKey": "zhijie_about",
+            "itemType": "object",
+            "isMultilingual": true
+        },
+        {
+            "itemKey": "zhijie_sidebar",
+            "itemType": "object",
+            "isMultilingual": true
+        },
+        {
+            "itemKey": "zhijie_footer",
+            "itemType": "object",
+            "isMultilingual": true
+        },
+        {
+            "itemKey": "zhijie_app",
+            "itemType": "object",
+            "isMultilingual": false
+        }
+    ],
+    "functionLang": {
+        "en": {
+            "save": "Save",
+            "sloganConfig": "Slogan",
+            "companyNameConfig": "Company Name",
+            "aboutConfig": "About Page Code",
+            "sidebarConfig": "Sidebar Code",
+            "footerConfig": "Footer Code",
+            "appConfig": "App Configuration",
+            "loadingConfig": "Loading dynamic effects",
+            "quickPublishConfig": "Quick publish post",
+            "ContentMarkdownConfig": "Content Markdown Option",
+            "notificationConfig": "Does the message page display",
+            "option_tip": "Please select...",
+            "option_support": "Support",
+            "option_no_support": "No Support",
+            "option_quick_publish": "Quick publish post",
+            "option_editor": "Editor",
+            "option_comment_box": "Comment Box",
+            "notification_systems": "Systems",
+            "notification_recommends": "Recommends",
+            "notification_likes": "Likes",
+            "notification_dislikes": "Dislikes",
+            "notification_follows": "Follows",
+            "notification_blocks": "Blocks",
+            "notification_mentions": "Mentions",
+            "notification_comments": "Comments",
+            "notification_quotes": "Quotes",
+            "search_method": "Search Method"
+        },
+        "zh-Hans": {
+            "save": "保存",
+            "sloganConfig": "产品标语",
+            "companyNameConfig": "公司名称",
+            "aboutConfig": "介绍页代码",
+            "sidebarConfig": "侧边栏代码",
+            "footerConfig": "页脚栏代码",
+            "appConfig": "App 配置",
+            "loadingConfig": "加载动效",
+            "quickPublishConfig": "快速发表帖子",
+            "ContentMarkdownConfig": "内容 Markdown 选项",
+            "notificationConfig": "消息页是否显示",
+            "option_tip": "请选择...",
+            "option_support": "支持",
+            "option_no_support": "不支持",
+            "option_quick_publish": "快速发表帖子",
+            "option_editor": "编辑器",
+            "option_comment_box": "评论框",
+            "notification_systems": "系统通知",
+            "notification_recommends": "推荐",
+            "notification_likes": "点赞",
+            "notification_dislikes": "踩",
+            "notification_follows": "关注",
+            "notification_blocks": "屏蔽",
+            "notification_mentions": "提及",
+            "notification_comments": "评论",
+            "notification_quotes": "引用",
+            "search_method": "搜索方式"
+        },
+        "zh-Hant": {
+            "save": "保存",
+            "sloganConfig": "產品標語",
+            "companyNameConfig": "公司名稱",
+            "aboutConfig": "介紹頁代碼",
+            "sidebarConfig": "側邊欄代碼",
+            "footerConfig": "頁腳欄代碼",
+            "appConfig": "App 設定",
+            "loadingConfig": "加載動效",
+            "quickPublishConfig": "快速發表貼文",
+            "ContentMarkdownConfig": "內容 Markdown 選項",
+            "notificationConfig": "消息頁是否顯示",
+            "option_tip": "請選擇...",
+            "option_support": "支持",
+            "option_no_support": "不支持",
+            "option_quick_publish": "快速發表貼文",
+            "option_editor": "編輯器",
+            "option_comment_box": "留言框",
+            "notification_systems": "系統通知",
+            "notification_recommends": "推薦",
+            "notification_likes": "喜歡",
+            "notification_dislikes": "不喜歡",
+            "notification_follows": "跟隨",
+            "notification_blocks": "封鎖",
+            "notification_mentions": "提及",
+            "notification_comments": "留言",
+            "notification_quotes": "引用",
+            "search_method": "搜索方式"
+        }
+    }
+}
