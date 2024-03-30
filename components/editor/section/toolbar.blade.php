@@ -71,7 +71,7 @@
                 data-accept="{{ $editorConfig['video']['inputAccept'] }}"
                 data-extensions="{{ $editorConfig['video']['extensions'] }}"
                 data-maxsize="{{ $editorConfig['video']['maxSize'] }}"
-                data-maxtime="{{ $editorConfig['video']['maxTime'] }}"
+                data-maxduration="{{ $editorConfig['video']['maxDuration'] }}"
                 data-maxnumber="{{ $editorConfig['video']['uploadNumber'] }}">
                     <div class="d-flex flex-column">
                     <i class="bi bi-film"></i>
@@ -102,7 +102,7 @@
                 data-accept="{{ $editorConfig['audio']['inputAccept'] }}"
                 data-extensions="{{ $editorConfig['audio']['extensions'] }}"
                 data-maxsize="{{ $editorConfig['audio']['maxSize'] }}"
-                data-maxtime="{{ $editorConfig['audio']['maxTime'] }}"
+                data-maxduration="{{ $editorConfig['audio']['maxDuration'] }}"
                 data-maxnumber="{{ $editorConfig['audio']['uploadNumber'] }}">
                 <div class="d-flex flex-column">
                     <i class="bi bi-music-note-beamed"></i>
