@@ -150,7 +150,6 @@
                     <form class="mt-2" method="post" id="upload-form" multiple="true" enctype="multipart/form-data">
                         <input type="hidden" name="usageType" @if ($type === 'post') value="postDraft" @elseif($type === "comment") value="commentDraft" @endif>
                         <input type="hidden" name="usageFsid" value="{{ $draft['detail']['did'] }}">
-                        <input type="hidden" name="uploadMode" value="file">
                         <input type="hidden" name="type">
                         <input class="form-control" type="file" id="formFile">
                         <label class="form-label mt-3 ms-1 text-secondary text-break fs-7 d-block">{{ fs_lang('editorUploadTipExtensions') }}: <span id="extensions"></span></label>

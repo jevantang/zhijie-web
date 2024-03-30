@@ -861,7 +861,6 @@ window.buildAjaxAndSubmit = function (url, body, succeededCallback, failedCallba
         formData.append('usageType', 'userAvatar');
         formData.append('usageFsid', uidOrUsername);
         formData.append('type', 'image');
-        formData.append('uploadMode', 'file');
 
         $.ajax({
             url: uploadAction,
@@ -903,7 +902,6 @@ window.buildAjaxAndSubmit = function (url, body, succeededCallback, failedCallba
         formData.append('usageType', 'conversation');
         formData.append('usageFsid', uidOrUsername);
         formData.append('type', type);
-        formData.append('uploadMode', 'file');
 
         $.ajax({
             url: uploadAction,
