@@ -435,7 +435,7 @@
                     individualForm.append('file', file);
 
                     $.ajax({
-                        url: "{{ route('fresns.api.post', ['path' => '/api/fresns/v1/common/file/uploads']) }}",
+                        url: "{{ route('fresns.api.post', ['path' => '/api/fresns/v1/common/file/upload']) }}",
                         type: "POST",
                         data: individualForm,
                         timeout: 600000,
