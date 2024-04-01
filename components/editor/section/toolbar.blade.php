@@ -41,7 +41,7 @@
                 data-accept="{{ $editorConfig['image']['inputAccept'] }}"
                 data-extensions="{{ $editorConfig['image']['extensions'] }}"
                 data-maxsize="{{ $editorConfig['image']['maxSize'] }}"
-                data-maxnumber="{{ $editorConfig['image']['uploadNumber'] }}">
+                data-maxnumber="{{ $editorConfig['image']['maxUploadNumber'] }}">
                 <div class="d-flex flex-column">
                     <i class="bi bi-image"></i>
                     <span>{{ fs_lang('editorImages') }}</span>
@@ -72,7 +72,7 @@
                 data-extensions="{{ $editorConfig['video']['extensions'] }}"
                 data-maxsize="{{ $editorConfig['video']['maxSize'] }}"
                 data-maxduration="{{ $editorConfig['video']['maxDuration'] }}"
-                data-maxnumber="{{ $editorConfig['video']['uploadNumber'] }}">
+                data-maxnumber="{{ $editorConfig['video']['maxUploadNumber'] }}">
                     <div class="d-flex flex-column">
                     <i class="bi bi-film"></i>
                     <span>{{ fs_lang('editorVideos') }}</span>
@@ -103,7 +103,7 @@
                 data-extensions="{{ $editorConfig['audio']['extensions'] }}"
                 data-maxsize="{{ $editorConfig['audio']['maxSize'] }}"
                 data-maxduration="{{ $editorConfig['audio']['maxDuration'] }}"
-                data-maxnumber="{{ $editorConfig['audio']['uploadNumber'] }}">
+                data-maxnumber="{{ $editorConfig['audio']['maxUploadNumber'] }}">
                 <div class="d-flex flex-column">
                     <i class="bi bi-music-note-beamed"></i>
                     <span>{{ fs_lang('editorAudios') }}</span>
@@ -133,7 +133,7 @@
                 data-accept="{{ $editorConfig['document']['inputAccept'] }}"
                 data-extensions="{{ $editorConfig['document']['extensions'] }}"
                 data-maxsize="{{ $editorConfig['document']['maxSize'] }}"
-                data-maxnumber="{{ $editorConfig['document']['uploadNumber'] }}">
+                data-maxnumber="{{ $editorConfig['document']['maxUploadNumber'] }}">
                 <div class="d-flex flex-column">
                     <i class="bi bi-file-earmark-text"></i>
                     <span>{{ fs_lang('editorDocuments') }}</span>
