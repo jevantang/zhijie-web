@@ -364,13 +364,14 @@
 
         (function($){
             let fileUploadModal = document.getElementById('fresns-upload');
+
             fileUploadModal.addEventListener('show.bs.modal', function (event) {
                 let button = event.relatedTarget,
                     extensions = $(button).data('extensions'),
                     type = $(button).data('type'),
                     accept = $(button).data('accept'),
-                    maxSize = $(button).data('maxsize');
-                    maxDuration = $(button).data('maxduration') ?? 0;
+                    maxSize = $(button).data('maxsize'),
+                    maxDuration = $(button).data('maxduration') ?? 0,
                     maxNumber = $(button).data('maxnumber');
 
                 if ($.inArray(type, ['document', 'image']) >= 0 ) {
