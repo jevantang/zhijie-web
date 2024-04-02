@@ -131,13 +131,13 @@ window.onmessage = function (event) {
 
         case 'fresnsEditorUpload':
             if (callbackData.action.dataHandler == 'add') {
-                callbackData.data.forEach((fileInfo) => {
+                if (Array.isArray(callbackData.data)) {
+                    callbackData.data.forEach((fileInfo) => {
+                        addEditorFile(fileInfo);
+                    });
+                } else {
                     addEditorFile(fileInfo);
-                });
-
-                $('#fresnsModal').modal('hide');
-
-                return;
+                }
             }
             break;
     }
