@@ -141,6 +141,7 @@
     <script src="/static/js/js-cookie.min.js"></script>
     <script src="/static/js/iframeResizer.min.js"></script>
     <script src="https://res.wx.qq.com/open/js/jweixin-1.6.0.js"></script>
+    <script src="/static/js/fresns-callback.js"></script>
     <script>
         window.ajaxGetList = true;
         window.siteName = "{{ fs_config('site_name') }}";
