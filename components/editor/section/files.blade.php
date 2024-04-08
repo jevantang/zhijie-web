@@ -26,7 +26,7 @@
                     <button type="button" class="btn btn-outline-dark btn-sm rounded-0 border-0" data-fid="{{ $video['fid'] }}" onclick="deleteFile(this)" data-bs-toggle="tooltip" data-bs-placement="top" title="{{ fs_lang('delete') }}"><i class="bi bi-trash"></i></button>
                 </div>
                 <div class="position-absolute top-50 start-50 translate-middle">
-                    <button type="button" class="btn btn-light editor-btn-video-play" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="{{ fs_lang('editorVideoPlay') }}" title="{{ fs_lang('editorVideoPlay') }}"><i class="bi bi-play-fill"></i></button>
+                    <button type="button" class="btn btn-light editor-btn-video-play" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="{{ fs_lang('editorVideoPlayTip') }}" title="{{ fs_lang('editorVideoPlayTip') }}"><i class="bi bi-play-fill"></i></button>
                 </div>
             </div>
         @endforeach
