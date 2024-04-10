@@ -14,6 +14,7 @@
                         <button class="btn btn-outline-success" type="button" data-bs-toggle="modal" data-bs-target="#fresnsModal"
                             data-title="{{ fs_lang('accountLogin') }}"
                             data-url="{{ fs_config('account_login_service') }}"
+                            data-redirect-url="{{ request()->url() }}"
                             data-post-message-key="fresnsAccountSign">
                             {{ fs_lang('accountLogin') }}
                         </button>
@@ -31,6 +32,7 @@
                                 data-modal-height="700"
                                 data-title="{{ fs_lang('accountRegister') }}"
                                 data-url="{{ fs_config('account_register_service') }}"
+                                data-redirect-url="{{ request()->url() }}"
                                 data-post-message-key="fresnsAccountSign">
                                 {{ fs_lang('accountRegister') }}
                             </button>

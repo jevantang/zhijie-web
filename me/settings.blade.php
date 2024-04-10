@@ -21,6 +21,7 @@
                         <button class="btn btn-outline-danger" type="button" data-bs-toggle="modal" data-bs-target="#fresnsModal"
                             data-title="{{ fs_lang('accountRevokeDelete') }}"
                             data-url="{{ fs_config('account_center_service') }}"
+                            data-redirect-url="{{ request()->url() }}"
                             data-post-message-key="reload">
                             {{ fs_lang('accountRevokeDelete') }}
                         </button>
