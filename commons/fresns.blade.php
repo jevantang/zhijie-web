@@ -58,11 +58,11 @@
     @yield('content')
 
     {{-- Fresns Extensions Modal --}}
-    <div class="modal fade fresnsExtensions" id="fresnsModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="fresnsModalLabel" aria-hidden="true">
+    <div class="modal fade" id="fresnsModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="fresnsModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="fresnsModalLabel">Extensions title</h5>
+                    <h5 class="modal-title" id="fresnsModalLabel">Fresns Title</h5>
                     <button type="button" class="btn-close btn-done-extensions" id="done-extensions" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body" style="padding:0"></div>
@@ -139,7 +139,6 @@
         <div style="display:none;">{!! fs_config('website_stat_code') !!}</div>
     @endif
     <script src="/static/js/js-cookie.min.js"></script>
-    <script src="/static/js/iframeResizer.min.js"></script>
     <script src="https://res.wx.qq.com/open/js/jweixin-1.6.0.js"></script>
     <script src="/static/js/fresns-callback.js"></script>
     <script>
