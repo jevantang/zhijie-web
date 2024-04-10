@@ -458,7 +458,7 @@ window.buildAjaxAndSubmit = function (url, body, succeededCallback, failedCallba
                     return;
                 }
 
-                downloadFile(res.data.originalUrl, name, mime);
+                downloadFile(res.data.link, name, mime);
             },
             complete: function (e) {
                 tips(e.responseJSON.message, e.responseJSON.code);
