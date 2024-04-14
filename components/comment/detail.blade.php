@@ -241,6 +241,13 @@
             </div>
         </div>
 
+        {{-- Post Author Like Status --}}
+        @if ($comment['interaction']['postAuthorLikeStatus'])
+            <div class="post-author-liked order-5 mt-2">
+                <span class="author-badge p-1">{{ fs_lang('contentAuthorLiked') }}</span>
+            </div>
+        @endif
+
         {{-- Comment Box --}}
         @component('components.editor.quick-publish-comment', [
             'nickname' => $comment['author']['nickname'],
@@ -249,11 +256,4 @@
             'show' => true,
         ])@endcomponent
     </section>
-
-    {{-- Post Author Like Status --}}
-    @if ($comment['interaction']['postAuthorLikeStatus'])
-        <div class="post-author-liked order-5 mt-2 mx-3">
-            <span class="author-badge p-1">{{ fs_lang('contentAuthorLiked') }}</span>
-        </div>
-    @endif
 </div>
