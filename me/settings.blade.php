@@ -19,6 +19,7 @@
                         <p>{{ fs_lang('executionDate') }}: {{ fs_account('detail.waitDeleteDateTime') }}</p>
                         <hr>
                         <button class="btn btn-outline-danger" type="button" data-bs-toggle="modal" data-bs-target="#fresnsModal"
+                            data-modal-height="700px"
                             data-title="{{ fs_lang('accountRevokeDelete') }}"
                             data-url="{{ fs_config('account_center_service') }}"
                             data-redirect-url="{{ urlencode(request()->fullUrl()) }}"
@@ -163,6 +164,7 @@
                             <span class="input-group-text">{{ fs_lang('accountCenter') }}</span>
                             <span class="form-control">{{ fs_lang('accountCenterDesc') }}</span>
                             <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#fresnsModal"
+                                data-modal-height="700px"
                                 data-title="{{ fs_lang('accountCenter') }}"
                                 data-url="{{ fs_config('account_center_service') }}"
                                 data-redirect-url="{{ urlencode(request()->fullUrl()) }}"
