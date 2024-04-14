@@ -174,6 +174,17 @@ function showReply(fresnsReply) {
 
 // at and hashtag
 function atwho() {
+    // Debounce function to limit the rate of API calls
+    function debounce(func, delay) {
+        let debounceTimer;
+        return function () {
+            const context = this;
+            const args = arguments;
+            clearTimeout(debounceTimer);
+            debounceTimer = setTimeout(() => func.apply(context, args), delay);
+        };
+    }
+
     if (window.mentionStatus) {
         $('.editor-content').atwho({
             at: '@',
@@ -182,7 +193,7 @@ function atwho() {
             insertTpl: '${atwho-at}${fsid}',
             searchKey: 'searchQuery',
             callbacks: {
-                remoteFilter: function (query, callback) {
+                remoteFilter: debounce(function (query, callback) {
                     if (query) {
                         $.get(
                             '/api/theme/actions/api/fresns/v1/common/input-tips',
@@ -195,7 +206,7 @@ function atwho() {
                             'json'
                         );
                     }
-                },
+                }, 300), // Debounce time is 300 milliseconds
             },
         });
     }
@@ -206,7 +217,7 @@ function atwho() {
             displayTpl: '<li> ${name} </li>',
             insertTpl: window.hashtagFormat == 1 ? '${atwho-at}${name}' : '${atwho-at}${name}${atwho-at}',
             callbacks: {
-                remoteFilter: function (query, callback) {
+                remoteFilter: debounce(function (query, callback) {
                     if (query) {
                         $.get(
                             '/api/theme/actions/api/fresns/v1/common/input-tips',
@@ -218,7 +229,7 @@ function atwho() {
                             'json'
                         );
                     }
-                },
+                }, 300), // Debounce time is 300 milliseconds
             },
         });
     }
