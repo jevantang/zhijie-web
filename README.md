@@ -2,7 +2,7 @@
 
 <p align="center">
 <img src="https://img.shields.io/badge/Fresns-%5E3.0-orange" alt="Fresns">
-<img src="https://img.shields.io/badge/WebEngine-%5E4.0-blueviolet" alt="WebEngine">
+<img src="https://img.shields.io/badge/WebsiteEngine-%5E4.0-blueviolet" alt="WebsiteEngine">
 <img src="https://img.shields.io/badge/License-Apache--2.0-green" alt="License">
 </p>
 
