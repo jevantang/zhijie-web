@@ -53,6 +53,7 @@
                                 data-label="{{ fs_config('user_nickname_name') }}"
                                 data-desc="{{ fs_lang('settingIntervalDays') }}: {{ fs_config('nickname_edit') }} {{ fs_lang('modifierDays') }} | {{ fs_lang('settingLastTime') }}: {{ fs_user('detail.lastEditNicknameDateTime') }}"
                                 data-name="nickname"
+                                data-action="{{ route('fresns.api.patch', ['path' => '/api/fresns/v1/user/profile']) }}"
                                 data-value="{{ fs_user('detail.nickname') }}"
                                 type="button" data-bs-toggle="modal" data-bs-target="#editModal">{{ fs_lang('modify') }}</button>
                         </div>
@@ -64,6 +65,7 @@
                                 data-label="{{ fs_config('user_username_name') }}"
                                 data-desc="{{ fs_lang('settingIntervalDays') }}: {{ fs_config('username_edit') }} {{ fs_lang('modifierDays') }} | {{ fs_lang('settingLastTime') }}: {{ fs_user('detail.lastEditUsernameDateTime') }}<br>{{ fs_lang('modifierLength') }}: {{ fs_config('username_min') }} - {{ fs_config('username_max') }}<br>{{ fs_lang('settingNameWarning') }}"
                                 data-name="username"
+                                data-action="{{ route('fresns.api.patch', ['path' => '/api/fresns/v1/user/profile']) }}"
                                 data-value="{{ fs_user('detail.username') }}"
                                 type="button" data-bs-toggle="modal" data-bs-target="#editModal">{{ fs_lang('modify') }}</button>
                         </div>
@@ -78,6 +80,7 @@
                                     data-input-tips="editor-content"
                                 @endif
                                 data-name="bio"
+                                data-action="{{ route('fresns.api.patch', ['path' => '/api/fresns/v1/user/profile']) }}"
                                 data-value="{{ fs_user('detail.bio') }}"
                                 type="button" data-bs-toggle="modal" data-bs-target="#editModal">{{ fs_lang('modify') }}</button>
                         </div>
@@ -108,6 +111,7 @@
                                 data-type="select"
                                 data-option='[{"id":1,"text":"{{ fs_lang('settingGenderNull') }}"},{"id":2,"text":"{{ fs_lang('settingGenderMale') }}"},{"id":3,"text":"{{ fs_lang('settingGenderFemale') }}"}]'
                                 data-name="gender"
+                                data-action="{{ route('fresns.api.patch', ['path' => '/api/fresns/v1/user/profile']) }}"
                                 data-value="{{ fs_user('detail.gender') }}"
                                 type="button" data-bs-toggle="modal" data-bs-target="#editModal">{{ fs_lang('modify') }}</button>
                         </div>
@@ -138,6 +142,7 @@
                                 data-type="select"
                                 data-option='[{"id":1,"text":"{{ fs_lang('optionEveryone') }}"},{"id":2,"text":"{{ fs_lang('optionPeopleYouFollow') }}"},{"id":3,"text":"{{ fs_lang('optionPeopleYouFollowOrVerified') }}"},{"id":4,"text":"{{ fs_lang('optionNoOneIsAllowed') }}"}]'
                                 data-name="commentPolicy"
+                                data-action="{{ route('fresns.api.patch', ['path' => '/api/fresns/v1/user/setting']) }}"
                                 data-value="{{ fs_user('detail.commentPolicy') }}"
                                 type="button" data-bs-toggle="modal" data-bs-target="#editModal">
                                 {{ fs_lang('modify') }}
@@ -183,7 +188,7 @@
     <div class="modal fade user-edit" id="editModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
-                <form class="api-request-form" action="{{ route('fresns.api.patch', ['path' => '/api/fresns/v1/user/profile']) }}" method="patch" autocomplete="off">
+                <form class="api-request-form" action="" method="patch" autocomplete="off">
                     <div class="modal-header">
                         <h5 class="modal-title" id="editModalLabel">{{ fs_lang('errorUnavailable') }}</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
