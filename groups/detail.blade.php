@@ -18,7 +18,7 @@
                         @if (fs_config('zhijie_quick_publish'))
                             <button class="btn btn-outline-primary" type="button" data-bs-toggle="modal" data-bs-target="#createModal" @if (!fs_user()->check()) disabled @endif><i class="bi bi-plus-circle-dotted"></i> {{ fs_config('publish_post_name') }}</button>
                         @else
-                            <a class="btn btn-outline-primary" role="button" href="{{ fs_route(route('fresns.editor.post')) }}"><i class="bi bi-plus-circle-dotted"></i> {{ fs_config('publish_post_name') }}</a>
+                            <a class="btn btn-outline-primary" role="button" href="{{ route('fresns.editor.post') }}"><i class="bi bi-plus-circle-dotted"></i> {{ fs_config('publish_post_name') }}</a>
                         @endif
                     </div>
                 </div>

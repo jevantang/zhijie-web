@@ -239,10 +239,10 @@
                         actionUrl = form.attr('action'),
                         methodType = form.attr('method') || 'POST',
                         type = "{{ $type }}",
-                        detailURLTemplate = "{{ fs_route(route('fresns.post.detail', ['pid' => 'temporaryID'])) }}"; // temporaryID
+                        detailURLTemplate = "{{ route('fresns.post.detail', ['pid' => 'temporaryID']) }}"; // temporaryID
 
                     if (type == 'comment') {
-                        detailURLTemplate = "{{ fs_route(route('fresns.comment.detail', ['cid' => 'temporaryID'])) }}"; // temporaryID
+                        detailURLTemplate = "{{ route('fresns.comment.detail', ['cid' => 'temporaryID']) }}"; // temporaryID
                     }
 
                     $.ajax({

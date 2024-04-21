@@ -11,13 +11,13 @@
         <div class="mb-4 text-muted fs-8 text-center">
             <p class="mb-1">
                 @if (fs_config('account_terms_status'))
-                    <a href="{{ fs_route(route('fresns.custom.page', ['name' => 'policies'])).'#terms-tab' }}" class="link-secondary">{{ fs_lang('accountPoliciesTerms') }}</a>
+                    <a href="{{ route('fresns.custom.page', ['name' => 'policies']).'#terms-tab' }}" class="link-secondary">{{ fs_lang('accountPoliciesTerms') }}</a>
                 @endif
                 @if (fs_config('account_privacy_status'))
-                    <a href="{{ fs_route(route('fresns.custom.page', ['name' => 'policies'])).'#privacy-tab' }}" class="link-secondary ms-2">{{ fs_lang('accountPoliciesPrivacy') }}</a>
+                    <a href="{{ route('fresns.custom.page', ['name' => 'policies']).'#privacy-tab' }}" class="link-secondary ms-2">{{ fs_lang('accountPoliciesPrivacy') }}</a>
                 @endif
                 @if (fs_config('account_cookie_status'))
-                    <a href="{{ fs_route(route('fresns.custom.page', ['name' => 'policies'])).'#cookies-tab' }}" class="link-secondary ms-2">{{ fs_lang('accountPoliciesCookie') }}</a>
+                    <a href="{{ route('fresns.custom.page', ['name' => 'policies']).'#cookies-tab' }}" class="link-secondary ms-2">{{ fs_lang('accountPoliciesCookie') }}</a>
                 @endif
             </p>
 

@@ -34,7 +34,7 @@
             {{-- logo --}}
             <div class="col-4">
                 <div class="d-flex align-items-center">
-                    <a class="ms-3" href="{{ fs_route(route('fresns.home')) }}"><img src="{{ fs_config('site_logo') }}" height="32" style="margin-top: 12px"></a>
+                    <a class="ms-3" href="{{ route('fresns.home') }}"><img src="{{ fs_config('site_logo') }}" height="32" style="margin-top: 12px"></a>
                     <span class="fw-normal text-secondary fs-7 ms-3" style="margin-top: 12px;">{{ fs_config('zhijie_slogan') }}</span>
                 </div>
             </div>
@@ -46,7 +46,7 @@
                         {{-- post --}}
                         @if (fs_config('channel_post_status'))
                             <li class="nav-item">
-                                <a class="nav-link py-3 px-2 px-lg-3 {{ Route::is(['fresns.home', 'fresns.post.*', 'fresns.timeline.posts']) ? 'active' : '' }}" href="{{ fs_route(route('fresns.post.index')) }}">
+                                <a class="nav-link py-3 px-2 px-lg-3 {{ Route::is(['fresns.home', 'fresns.post.*', 'fresns.timeline.posts']) ? 'active' : '' }}" href="{{ route('fresns.post.index') }}">
                                     {{ fs_config('channel_post_name') }}
                                 </a>
                             </li>
@@ -55,7 +55,7 @@
                         {{-- group --}}
                         @if (fs_config('channel_group_status'))
                             <li class="nav-item">
-                                <a class="nav-link py-3 px-2 px-lg-3 {{ Route::is(['fresns.group.*']) ? 'active' : '' }}" href="{{ fs_route(route('fresns.group.index')) }}">
+                                <a class="nav-link py-3 px-2 px-lg-3 {{ Route::is(['fresns.group.*']) ? 'active' : '' }}" href="{{ route('fresns.group.index') }}">
                                     {{ fs_config('channel_group_name') }}
                                 </a>
                             </li>
@@ -69,9 +69,9 @@
                 <div class="d-flex justify-content-end mt-2 me-4">
                     @if (fs_user()->check())
                         {{-- Logged In --}}
-                        <a class="btn" href="{{ fs_route(route('fresns.me.index')) }}" role="button"><img src="{{ fs_user('detail.avatar') }}" loading="lazy" class="nav-avatar rounded-circle"> {{ fs_user('detail.nickname') }}</a>
+                        <a class="btn" href="{{ route('fresns.me.index') }}" role="button"><img src="{{ fs_user('detail.avatar') }}" loading="lazy" class="nav-avatar rounded-circle"> {{ fs_user('detail.nickname') }}</a>
 
-                        <a href="{{ fs_route(route('fresns.notification.index')) }}"role="button" class="btn btn-outline-secondary btn-nav ms-2 rounded-circle position-relative">
+                        <a href="{{ route('fresns.notification.index') }}"role="button" class="btn btn-outline-secondary btn-nav ms-2 rounded-circle position-relative">
                             <i class="bi bi-bell"></i>
                             @if (fs_user_overview('unreadNotifications.all') > 0)
                                 <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">{{ fs_user_overview('unreadNotifications.all') }}</span>
@@ -79,7 +79,7 @@
                         </a>
 
                         @if (fs_config('conversation_status'))
-                            <a href="{{ fs_route(route('fresns.conversation.index')) }}"role="button" class="btn btn-outline-secondary btn-nav ms-2 rounded-circle position-relative">
+                            <a href="{{ route('fresns.conversation.index') }}"role="button" class="btn btn-outline-secondary btn-nav ms-2 rounded-circle position-relative">
                                 <i class="bi bi-envelope"></i>
                                 @if (fs_user_overview('conversations.unreadMessages') > 0)
                                     <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">{{ fs_user_overview('conversations.unreadMessages') }}</span>
@@ -93,7 +93,7 @@
                             <ul class="dropdown-menu dropdown-menu-end">
                                 {{-- Notifications --}}
                                 <li>
-                                    <a class="dropdown-item" href="{{ fs_route(route('fresns.notification.index')) }}">
+                                    <a class="dropdown-item" href="{{ route('fresns.notification.index') }}">
                                         <i class="bi bi-bell"></i>
                                         {{ fs_config('channel_notifications_name') }}
 
@@ -106,7 +106,7 @@
                                 {{-- Conversations --}}
                                 @if (fs_config('conversation_status'))
                                     <li>
-                                        <a class="dropdown-item" href="{{ fs_route(route('fresns.conversation.index')) }}">
+                                        <a class="dropdown-item" href="{{ route('fresns.conversation.index') }}">
                                             <i class="bi bi-envelope"></i>
                                             {{ fs_config('channel_conversations_name') }}
 
@@ -119,7 +119,7 @@
 
                                 {{-- Drafts --}}
                                 <li>
-                                    <a class="dropdown-item" href="{{ fs_route(route('fresns.me.drafts')) }}">
+                                    <a class="dropdown-item" href="{{ route('fresns.me.drafts') }}">
                                         <i class="bi bi-file-earmark-text"></i>
                                         {{ fs_config('channel_me_drafts_name') }}
 
@@ -131,16 +131,16 @@
 
                                 {{-- Wallet --}}
                                 @if (fs_config('wallet_status'))
-                                    <li><a class="dropdown-item" href="{{ fs_route(route('fresns.me.wallet')) }}"><i class="bi bi-wallet"></i> {{ fs_config('channel_me_wallet_name') }}</a></li>
+                                    <li><a class="dropdown-item" href="{{ route('fresns.me.wallet') }}"><i class="bi bi-wallet"></i> {{ fs_config('channel_me_wallet_name') }}</a></li>
                                 @endif
 
                                 {{-- Users of this account --}}
                                 @if (fs_user_overview('multiUser.status') || count(fs_account('detail.users')) > 1)
-                                    <li><a class="dropdown-item" href="{{ fs_route(route('fresns.me.users')) }}"><i class="bi bi-people"></i> {{ fs_config('channel_me_users_name') }}</a></li>
+                                    <li><a class="dropdown-item" href="{{ route('fresns.me.users') }}"><i class="bi bi-people"></i> {{ fs_config('channel_me_users_name') }}</a></li>
                                 @endif
 
                                 {{-- Settings --}}
-                                <li><a class="dropdown-item" href="{{ fs_route(route('fresns.me.settings')) }}"><i class="bi bi-gear"></i> {{ fs_config('channel_me_settings_name') }}</a></li>
+                                <li><a class="dropdown-item" href="{{ route('fresns.me.settings') }}"><i class="bi bi-gear"></i> {{ fs_config('channel_me_settings_name') }}</a></li>
                                 <li><hr class="dropdown-divider"></li>
 
                                 {{-- Switch Languages --}}
@@ -154,7 +154,7 @@
                                 @endif
 
                                 {{-- Logout --}}
-                                <li><a class="dropdown-item" href="{{ fs_route(route('fresns.me.logout')) }}"><i class="bi bi-power"></i> {{ fs_lang('accountLogout') }}</a></li>
+                                <li><a class="dropdown-item" href="{{ route('fresns.me.logout') }}"><i class="bi bi-power"></i> {{ fs_lang('accountLogout') }}</a></li>
                             </ul>
                         </div>
                     @else
@@ -215,11 +215,11 @@
 
     <div class="d-block d-lg-none d-flex py-2">
         <div class="ms-3 pt-1" id="siteLogo">
-            <a href="{{ fs_route(route('fresns.home')) }}"><img src="{{ fs_config('site_logo') }}" height="28"></a>
+            <a href="{{ route('fresns.home') }}"><img src="{{ fs_config('site_logo') }}" height="28"></a>
         </div>
 
         <div class="ms-auto pe-2">
-            <a class="btn btn-outline-secondary me-1" href="{{ fs_route(route('fresns.portal')) }}" id="downloadApp" role="button">{{ fs_lang('downloadApp') }}</a>
+            <a class="btn btn-outline-secondary me-1" href="{{ route('fresns.portal') }}" id="downloadApp" role="button">{{ fs_lang('downloadApp') }}</a>
 
             @if ($appScheme)
                 <a href="{{ $appPath ? $appScheme.'://'.$appPath : $appSchemeHome }}" id="openApp" class="btn btn-warning me-1" role="button">{{ fs_lang('openApp') }}</a>

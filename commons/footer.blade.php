@@ -6,13 +6,13 @@
 
         <ul class="nav col-md-4 justify-content-end">
             @if (fs_config('account_terms_status'))
-                <li class="nav-item"><a href="{{ fs_route(route('fresns.custom.page', ['name' => 'policies'])).'#terms-tab' }}" class="nav-link px-2 text-muted">{{ fs_lang('accountPoliciesTerms') }}</a></li>
+                <li class="nav-item"><a href="{{ route('fresns.custom.page', ['name' => 'policies']).'#terms-tab' }}" class="nav-link px-2 text-muted">{{ fs_lang('accountPoliciesTerms') }}</a></li>
             @endif
             @if (fs_config('account_privacy_status'))
-                <li class="nav-item"><a href="{{ fs_route(route('fresns.custom.page', ['name' => 'policies'])).'#privacy-tab' }}" class="nav-link px-2 text-muted">{{ fs_lang('accountPoliciesPrivacy') }}</a></li>
+                <li class="nav-item"><a href="{{ route('fresns.custom.page', ['name' => 'policies']).'#privacy-tab' }}" class="nav-link px-2 text-muted">{{ fs_lang('accountPoliciesPrivacy') }}</a></li>
             @endif
             @if (fs_config('account_cookie_status'))
-                <li class="nav-item"><a href="{{ fs_route(route('fresns.custom.page', ['name' => 'policies'])).'#cookies-tab' }}" class="nav-link px-2 text-muted">{{ fs_lang('accountPoliciesCookie') }}</a></li>
+                <li class="nav-item"><a href="{{ route('fresns.custom.page', ['name' => 'policies']).'#cookies-tab' }}" class="nav-link px-2 text-muted">{{ fs_lang('accountPoliciesCookie') }}</a></li>
             @endif
         </ul>
     </div>
