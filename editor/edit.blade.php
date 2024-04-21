@@ -239,10 +239,10 @@
                         actionUrl = form.attr('action'),
                         methodType = form.attr('method') || 'POST',
                         type = "{{ $type }}",
-                        detailURLTemplate = "{{ fs_route(route('fresns.post.detail', ['pid' => 'FresnsPlaceholder'])) }}";
+                        detailURLTemplate = "{{ fs_route(route('fresns.post.detail', ['pid' => 'temporaryID'])) }}"; // temporaryID
 
                     if (type == 'comment') {
-                        detailURLTemplate = "{{ fs_route(route('fresns.comment.detail', ['cid' => 'FresnsPlaceholder'])) }}";
+                        detailURLTemplate = "{{ fs_route(route('fresns.comment.detail', ['cid' => 'temporaryID'])) }}"; // temporaryID
                     }
 
                     $.ajax({
@@ -253,7 +253,7 @@
 
                             if (res.code == 0) {
                                 let fsid = res.data.fsid;
-                                let detailURL = detailURLTemplate.replace('FresnsPlaceholder', fsid);
+                                let detailURL = detailURLTemplate.replace('temporaryID', fsid); // temporaryID
 
                                 window.location.href = detailURL;
                             }
