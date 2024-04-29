@@ -100,7 +100,7 @@
 
             {{-- Comment Location --}}
             @if ($geotag)
-                <a href="{{ route('fresns.geotag..detail', ['gtid' => $geotag['gtid']]) }}" class="link-secondary ms-3"><i class="bi bi-geo-alt-fill"></i> {{ $geotag['name'] }}</a>
+                <a href="{{ route('fresns.geotag.detail', ['gtid' => $geotag['gtid']]) }}" class="link-secondary ms-3"><i class="bi bi-geo-alt-fill"></i> {{ $geotag['name'] }}</a>
             @endif
         </div>
     </div>
