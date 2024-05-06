@@ -13,10 +13,16 @@ $.ajaxSetup({
 });
 
 // utc timezone
-const now = new Date();
-const timezoneOffsetInHours = now.getTimezoneOffset() / -60;
-const fresnsTimezone = (timezoneOffsetInHours > 0 ? '+' : '') + timezoneOffsetInHours.toString();
-Cookies.set('fresns_timezone', fresnsTimezone);
+const cookieTimezone = Cookies.get('fresns_timezone');
+if (!cookieTimezone) {
+    const now = new Date();
+    const timezoneOffsetInHours = now.getTimezoneOffset() / -60;
+    const fresnsTimezone = (timezoneOffsetInHours > 0 ? '+' : '') + timezoneOffsetInHours.toString();
+    const cookieMinutes = 30 / 1440;
+
+    console.log('cookie', 'fresns_timezone', fresnsTimezone);
+    Cookies.set('fresns_timezone', fresnsTimezone, {expires: cookieMinutes});
+}
 
 // bootstrap Tooltips
 var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
