@@ -805,8 +805,7 @@ window.buildAjaxAndSubmit = function (url, body, succeededCallback, failedCallba
         let formData = new FormData(),
             token = $('meta[name="csrf-token"]').attr('content'),
             obj = $(this),
-            uploadAction = $(this).data('upload-action'),
-            uidOrUsername = $(this).data('user-fsid');
+            uidOrUsername = obj.data('user-fsid');
 
         obj.prop('disabled', true);
         obj.prev().prepend(
@@ -820,7 +819,7 @@ window.buildAjaxAndSubmit = function (url, body, succeededCallback, failedCallba
         formData.append('type', 'image');
 
         $.ajax({
-            url: uploadAction,
+            url: '/api/theme/actions/api/fresns/v1/common/file/upload',
             type: 'POST',
             cache: false,
             data: formData,
@@ -846,8 +845,7 @@ window.buildAjaxAndSubmit = function (url, body, succeededCallback, failedCallba
             token = $('meta[name="csrf-token"]').attr('content'),
             obj = $(this),
             type = obj.data('type'),
-            uploadAction = $(this).data('upload-action'),
-            uidOrUsername = $(this).data('user-fsid');
+            uidOrUsername = obj.data('user-fsid');
 
         $('.send-file-btn').prop('disabled', true);
         $('.send-file-btn').prepend(
@@ -861,7 +859,7 @@ window.buildAjaxAndSubmit = function (url, body, succeededCallback, failedCallba
         formData.append('type', type);
 
         $.ajax({
-            url: uploadAction,
+            url: '/api/theme/actions/api/fresns/v1/common/file/upload',
             type: 'POST',
             cache: false,
             data: formData,
