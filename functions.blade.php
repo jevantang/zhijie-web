@@ -33,7 +33,7 @@
                 <div class="col-lg-6">
                     <div class="input-group">
                         <button type="button" class="btn btn-outline-secondary form-control btn-modal text-start" data-bs-toggle="modal" data-bs-target="#aboutModal">{{ __('FsLang::panel.button_edit') }}</button>
-                        <a class="btn btn-outline-secondary" href="/portal/about" target="_blank" role="button">{{ __('FsLang::panel.button_view') }}</a>
+                        <a class="btn btn-outline-secondary" href="{{ route('fresns.about') }}" target="_blank" role="button">{{ __('FsLang::panel.button_view') }}</a>
                     </div>
                 </div>
             </div>
