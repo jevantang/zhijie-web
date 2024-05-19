@@ -165,17 +165,23 @@
                             </div>
                         @endforeach
                         {{-- Account Center --}}
-                        <div class="input-group mb-3">
-                            <span class="input-group-text">{{ fs_lang('accountCenter') }}</span>
-                            <span class="form-control">{{ fs_lang('accountCenterDesc') }}</span>
-                            <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#fresnsModal"
-                                data-modal-height="700px"
-                                data-title="{{ fs_lang('accountCenter') }}"
-                                data-url="{{ fs_config('account_center_service') }}"
-                                data-redirect-url="{{ urlencode(request()->fullUrl()) }}"
-                                data-post-message-key="reload">
-                                {{ fs_lang('accountCenterSeeMore') }}
-                            </button>
+                        <div class="card my-3">
+                            <div class="card-body">
+                                <p class="mb-2"><img src="{{ fs_config('site_logo') }}" height="20"></p>
+                                <h5 class="card-title fs-6">{{ fs_lang('accountCenter') }}</h5>
+                                <p class="text-secondary-emphasis fs-7 mb-2">{{ fs_lang('accountCenterDesc') }}</p>
+                                <p class="text-secondary fs-7 mb-1"><i class="bi bi-cake2"></i> {{ fs_lang('userBirthday') }}</p>
+                                <p class="text-secondary fs-7 mb-1"><i class="bi bi-person-vcard"></i> {{ fs_lang('emailOrPhone') }}</p>
+                                <p class="text-secondary fs-7 mb-2"><i class="bi bi-key"></i> {{ fs_lang('accountPassword') }}</p>
+                                <p class="mb-0">
+                                    <a class="link-primary fs-7 text-decoration-none" data-bs-toggle="modal" href="#fresnsModal"
+                                        data-modal-height="700px"
+                                        data-title="{{ fs_lang('accountCenter') }}"
+                                        data-url="{{ fs_config('account_center_service') }}"
+                                        data-redirect-url="{{ urlencode(request()->fullUrl()) }}"
+                                        data-post-message-key="reload">{{ fs_lang('accountCenterSeeMore') }}</a>
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
