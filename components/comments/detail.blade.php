@@ -68,13 +68,13 @@
 
 <div class="position-relative pb-2" id="{{ $comment['cid'] }}">
     {{-- Post Preview --}}
-    @component('components.comment.section.post', [
+    @component('components.comments.sections.post', [
         'post' => $comment['replyToPost'],
     ])@endcomponent
 
     {{-- Comment Author --}}
     <section class="content-author order-0">
-        @component('components.comment.section.author', [
+        @component('components.comments.sections.author', [
             'cid' => $comment['cid'],
             'author' => $comment['author'],
             'isAnonymous' => $comment['isAnonymous'],
@@ -145,7 +145,7 @@
 
     {{-- Files --}}
     <section class="content-files order-3 mx-3 mt-2 d-flex align-content-start flex-wrap file-image-{{ count($comment['files']['images']) }}">
-        @component('components.comment.section.files', [
+        @component('components.comments.sections.files', [
             'cid' => $comment['cid'],
             'createdDatetime' => $comment['createdDatetime'],
             'author' => $comment['author'],
@@ -156,7 +156,7 @@
     {{-- Content Extends --}}
     @if ($comment['extends'])
         <section class="content-extends order-3 mx-3">
-            @component('components.comment.section.extends', [
+            @component('components.comments.sections.extends', [
                 'cid' => $comment['cid'],
                 'createdDatetime' => $comment['createdDatetime'],
                 'author' => $comment['author'],
@@ -171,7 +171,7 @@
             {{-- Like --}}
             @if ($comment['interaction']['likeEnabled'])
                 <div class="interaction-box">
-                    @component('components.comment.mark.like', [
+                    @component('components.comments.mark.like', [
                         'cid' => $comment['cid'],
                         'interaction' => $comment['interaction'],
                         'count' => $comment['likeCount'],
@@ -183,7 +183,7 @@
             {{-- Dislike --}}
             @if ($comment['interaction']['dislikeEnabled'])
                 <div class="interaction-box">
-                    @component('components.comment.mark.dislike', [
+                    @component('components.comments.mark.dislike', [
                         'cid' => $comment['cid'],
                         'interaction' => $comment['interaction'],
                         'count' => $comment['dislikeCount'],
@@ -213,7 +213,7 @@
                         <img src="{{ fs_theme('assets') }}images/icon-share.png" loading="lazy">
                     @endif
                 </button>
-                @component('components.comment.mark.share', [
+                @component('components.comments.mark.share', [
                     'cid' => $comment['cid'],
                     'url' => $comment['url'],
                 ])@endcomponent
@@ -228,7 +228,7 @@
                         <img src="{{ fs_theme('assets') }}images/icon-more.png" loading="lazy">
                     @endif
                 </button>
-                @component('components.comment.mark.more', [
+                @component('components.comments.mark.more', [
                     'cid' => $comment['cid'],
                     'uid' => $comment['author']['uid'],
                     'controls' => $comment['controls'],

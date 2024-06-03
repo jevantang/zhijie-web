@@ -66,10 +66,10 @@
     @endphp
 @endif
 
-<div class="position-relative pb-2" id="{{ $post['pid'] }}">
+<div class="position-relative card border-0 shadow-sm mb-4 pb-2" id="{{ $post['pid'] }}">
     {{-- Post Author --}}
     <section class="content-author order-0">
-        @component('components.post.section.author', [
+        @component('components.posts.sections.author', [
             'pid' => $post['pid'],
             'author' => $post['author'],
             'isAnonymous' => $post['isAnonymous'],
@@ -83,7 +83,7 @@
     </section>
 
     {{-- Post Main --}}
-    <section class="content-main order-2 mx-3 mb-3 position-relative">
+    <section class="content-main order-2 mx-3 position-relative">
         {{-- Title --}}
         <div class="content-title d-flex flex-row bd-highlight">
             {{-- Title Icon --}}
@@ -93,7 +93,7 @@
 
             {{-- Title --}}
             @if ($post['title'])
-                <h1 class="h3 mb-3">{{ $post['title'] }}</h1>
+                <h1 class="h5 mb-3">{{ $post['title'] }}</h1>
             @endif
 
             {{-- Sticky --}}
@@ -114,20 +114,19 @@
         {{-- Content --}}
         <div class="content-article text-break">
             @if ($post['isMarkdown'])
-                @php
-                    $searchArr = [
-                        '&lt;audio class=&quot;fresns_file_audio&quot; controls preload=&quot;metadata&quot; controlsList=&quot;nodownload&quot; src=&quot;',
-                        '&quot;&gt;</audio>',
-                    ];
-                    $replaceArr = [
-                        '<audio class="fresns_file_audio" controls preload="metadata" controlsList="nodownload" src="',
-                        '"></audio>',
-                    ];
-                @endphp
-                {!! str_replace($searchArr, $replaceArr, Str::markdown($post['content'])) !!}
+                {!! Str::markdown($post['content']) !!}
             @else
                 {!! nl2br($post['content']) !!}
             @endif
+
+            {{-- Detail Link --}}
+            <p class="mt-2">
+                <a href="{{ route('fresns.post.detail', ['pid' => $post['pid']]) }}" class="text-decoration-none stretched-link">
+                    @if ($post['isBrief'])
+                        {{ fs_lang('contentFull') }}
+                    @endif
+                </a>
+            </p>
         </div>
     </section>
 
@@ -158,7 +157,7 @@
 
     {{-- Files --}}
     <section class="content-files order-3 mx-3 d-flex align-content-start flex-wrap file-image-{{ count($post['files']['images']) }}">
-        @component('components.post.section.files', [
+        @component('components.posts.sections.files', [
             'pid' => $post['pid'],
             'createdDatetime' => $post['createdDatetime'],
             'author' => $post['author'],
@@ -168,7 +167,7 @@
 
     {{-- Content Extends --}}
     <section class="content-extends order-3 mx-3">
-        @component('components.post.section.extends', [
+        @component('components.posts.sections.extends', [
             'pid' => $post['pid'],
             'createdDatetime' => $post['createdDatetime'],
             'author' => $post['author'],
@@ -178,7 +177,7 @@
 
     {{-- Quoted Post --}}
     @if ($post['quotedPost'])
-        @component('components.post.section.quoted-post', [
+        @component('components.posts.sections.quoted-post', [
             'quotedPost' => $post['quotedPost'],
         ])@endcomponent
     @endif
@@ -217,13 +216,22 @@
         </section>
     @endif
 
+    {{-- Comment Preview --}}
+    @if ($post['previewComments'])
+        @component('components.posts.sections.preview-comment', [
+            'pid' => $post['pid'],
+            'commentCount' => $post['commentCount'],
+            'previewComments' => $post['previewComments'],
+        ])@endcomponent
+    @endif
+
     {{-- Post Interaction --}}
     <section class="interaction order-5 mt-3 px-3">
         <div class="d-flex">
             {{-- Like --}}
             @if ($post['interaction']['likeEnabled'])
                 <div class="interaction-box">
-                    @component('components.post.mark.like', [
+                    @component('components.posts.mark.like', [
                         'pid' => $post['pid'],
                         'interaction' => $post['interaction'],
                         'count' => $post['likeCount'],
@@ -235,7 +243,7 @@
             {{-- Dislike --}}
             @if ($post['interaction']['dislikeEnabled'])
                 <div class="interaction-box">
-                    @component('components.post.mark.dislike', [
+                    @component('components.posts.mark.dislike', [
                         'pid' => $post['pid'],
                         'interaction' => $post['interaction'],
                         'count' => $post['dislikeCount'],
@@ -252,7 +260,9 @@
                     @else
                         <img src="{{ fs_theme('assets') }}images/icon-comment.png" loading="lazy">
                     @endif
-                    {{ $post['commentCount'] }}
+                    <span class="cm-count">
+                        {{ $post['commentCount'] }}
+                    </span>
                 </a>
             </div>
 
@@ -265,7 +275,7 @@
                         <img src="{{ fs_theme('assets') }}images/icon-share.png" loading="lazy">
                     @endif
                 </button>
-                @component('components.post.mark.share', [
+                @component('components.posts.mark.share', [
                     'pid' => $post['pid'],
                     'url' => $post['url'],
                 ])@endcomponent
@@ -280,7 +290,7 @@
                         <img src="{{ fs_theme('assets') }}images/icon-more.png" loading="lazy">
                     @endif
                 </button>
-                @component('components.post.mark.more', [
+                @component('components.posts.mark.more', [
                     'pid' => $post['pid'],
                     'uid' => $post['author']['uid'],
                     'controls' => $post['controls'],
@@ -288,7 +298,7 @@
                     'followCount' => $post['followCount'],
                     'blockCount' => $post['blockCount'],
                     'manages' => $post['manages'],
-                    'viewType' => 'detail',
+                    'viewType' => 'list',
                 ])@endcomponent
             </div>
         </div>
@@ -297,7 +307,17 @@
         @component('components.editor.quick-publish-comment', [
             'nickname' => $post['author']['nickname'],
             'pid' => $post['pid'],
-            'show' => true,
         ])@endcomponent
     </section>
+
+    {{-- Preview Like Users --}}
+    @if ($post['previewLikeUsers'])
+        @component('components.posts.sections.preview-user', [
+            'name' => $post['interaction']['likeName'],
+            'status' => $post['interaction']['likeStatus'],
+            'count' => $post['likeCount'],
+            'icon' => $iconLike,
+            'previewLikeUsers' => $post['previewLikeUsers'],
+        ])@endcomponent
+    @endif
 </div>

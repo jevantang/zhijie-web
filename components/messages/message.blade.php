@@ -5,7 +5,7 @@
                 @if ($message['type'] == 'text')
                     {{ $message['content'] }}
                 @else
-                    @component('components.message.message-file', [
+                    @component('components.messages.message-file', [
                         'cmid' => $message['cmid'],
                         'file' => $message['file'],
                     ])@endcomponent
@@ -27,7 +27,7 @@
                 @if ($message['type'] == 'text')
                     {{ $message['content'] }}
                 @else
-                    @component('components.message.message-file', [
+                    @component('components.messages.message-file', [
                         'cmid' => $message['cmid'],
                         'file' => $message['file'],
                     ])@endcomponent

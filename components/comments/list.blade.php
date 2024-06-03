@@ -14,39 +14,39 @@
     $sectionAuthorLiked = $sectionAuthorLiked ?? false;
 @endphp
 
-@if ($sticky['operations']['buttonIcons'])
+@if ($comment['operations']['buttonIcons'])
     @php
-        $iconLike = fs_helpers('Arr', 'pull', $sticky['operations']['buttonIcons'], [
+        $iconLike = fs_helpers('Arr', 'pull', $comment['operations']['buttonIcons'], [
             'key' => 'code',
             'values' => 'like',
             'asArray' => false,
         ]);
-        $iconDislike = fs_helpers('Arr', 'pull', $sticky['operations']['buttonIcons'], [
+        $iconDislike = fs_helpers('Arr', 'pull', $comment['operations']['buttonIcons'], [
             'key' => 'code',
             'values' => 'dislike',
             'asArray' => false,
         ]);
-        $iconFollow = fs_helpers('Arr', 'pull', $sticky['operations']['buttonIcons'], [
+        $iconFollow = fs_helpers('Arr', 'pull', $comment['operations']['buttonIcons'], [
             'key' => 'code',
             'values' => 'follow',
             'asArray' => false,
         ]);
-        $iconBlock = fs_helpers('Arr', 'pull', $sticky['operations']['buttonIcons'], [
+        $iconBlock = fs_helpers('Arr', 'pull', $comment['operations']['buttonIcons'], [
             'key' => 'code',
             'values' => 'block',
             'asArray' => false,
         ]);
-        $iconComment = fs_helpers('Arr', 'pull', $sticky['operations']['buttonIcons'], [
+        $iconComment = fs_helpers('Arr', 'pull', $comment['operations']['buttonIcons'], [
             'key' => 'code',
             'values' => 'comment',
             'asArray' => false,
         ]);
-        $iconShare = fs_helpers('Arr', 'pull', $sticky['operations']['buttonIcons'], [
+        $iconShare = fs_helpers('Arr', 'pull', $comment['operations']['buttonIcons'], [
             'key' => 'code',
             'values' => 'share',
             'asArray' => false,
         ]);
-        $iconMore = fs_helpers('Arr', 'pull', $sticky['operations']['buttonIcons'], [
+        $iconMore = fs_helpers('Arr', 'pull', $comment['operations']['buttonIcons'], [
             'key' => 'code',
             'values' => 'more',
             'asArray' => false,
@@ -54,14 +54,14 @@
     @endphp
 @endif
 
-@if ($sticky['operations']['diversifyImages'])
+@if ($comment['operations']['diversifyImages'])
     @php
-        $title = fs_helpers('Arr', 'pull', $sticky['operations']['diversifyImages'], [
+        $title = fs_helpers('Arr', 'pull', $comment['operations']['diversifyImages'], [
             'key' => 'code',
             'values' => 'title',
             'asArray' => false,
         ]);
-        $decorate = fs_helpers('Arr', 'pull', $sticky['operations']['diversifyImages'], [
+        $decorate = fs_helpers('Arr', 'pull', $comment['operations']['diversifyImages'], [
             'key' => 'code',
             'values' => 'decorate',
             'asArray' => false,
@@ -69,20 +69,20 @@
     @endphp
 @endif
 
-<div class="position-relative pb-2" id="{{ $sticky['cid'] }}">
+<div class="position-relative pb-2" id="{{ $comment['cid'] }}">
     {{-- Comment Author --}}
     <section class="content-author order-0">
-        @component('components.comment.section.author', [
-            'cid' => $sticky['cid'],
-            'author' => $sticky['author'],
-            'isAnonymous' => $sticky['isAnonymous'],
-            'createdDatetime' => $sticky['createdDatetime'],
-            'createdTimeAgo' => $sticky['createdTimeAgo'],
-            'editedDatetime' => $sticky['editedDatetime'],
-            'editedTimeAgo' => $sticky['editedTimeAgo'],
-            'geotag' => $sticky['geotag'],
-            'moreInfo' => $sticky['moreInfo'],
-            'replyToComment' => $sticky['replyToComment'],
+        @component('components.comments.sections.author', [
+            'cid' => $comment['cid'],
+            'author' => $comment['author'],
+            'isAnonymous' => $comment['isAnonymous'],
+            'createdDatetime' => $comment['createdDatetime'],
+            'createdTimeAgo' => $comment['createdTimeAgo'],
+            'editedDatetime' => $comment['editedDatetime'],
+            'editedTimeAgo' => $comment['editedTimeAgo'],
+            'geotag' => $comment['geotag'],
+            'moreInfo' => $comment['moreInfo'],
+            'replyToComment' => $comment['replyToComment'],
         ])@endcomponent
     </section>
 
@@ -96,41 +96,41 @@
             @endif
 
             {{-- Sticky --}}
-            @if ($sticky['isSticky'])
+            @if ($comment['isSticky'])
                 <img src="{{ fs_theme('assets') }}images/icon-sticky.png" loading="lazy" alt="Sticky" class="ms-2">
             @endif
 
             {{-- Digest --}}
-            @if ($sticky['digestState'] == 2)
+            @if ($comment['digestState'] == 2)
                 <img src="{{ fs_theme('assets') }}images/icon-digest.png" loading="lazy" alt="General Digest" class="ms-2">
-            @elseif ($sticky['digestState'] == 3)
+            @elseif ($comment['digestState'] == 3)
                 <img src="{{ fs_theme('assets') }}images/icon-digest.png" loading="lazy" alt="Senior Digest" class="ms-2">
             @endif
         </div>
 
         {{-- Content --}}
-        <div class="content-article">
-            @if ($sticky['privacy'] == 'private')
+        <div class="content-article text-break">
+            @if ($comment['privacy'] == 'private')
                 <div class="alert alert-warning" role="alert">
                     <i class="bi bi-info-circle"></i> {{ fs_lang('editorCommentPrivate') }}
                 </div>
             @else
-                @if ($sticky['isMarkdown'])
-                    {!! Str::markdown($sticky['content']) !!}
-                @else
-                    {!! nl2br($sticky['content']) !!}
-                @endif
+                    @if ($comment['isMarkdown'])
+                        {!! Str::markdown($comment['content']) !!}
+                    @else
+                        {!! nl2br($comment['content']) !!}
+                    @endif
 
-                {{-- Detail Link --}}
-                @if ($detailLink)
-                    <p class="mt-2">
-                        <a href="{{ route('fresns.comment.detail', ['cid' => $sticky['cid']]) }}" class="text-decoration-none stretched-link">
-                            @if ($sticky['isBrief'])
-                                {{ fs_lang('contentFull') }}
-                            @endif
-                        </a>
-                    </p>
-                @endif
+                    {{-- Detail Link --}}
+                    @if ($detailLink)
+                        <p class="mt-2">
+                            <a href="{{ route('fresns.comment.detail', ['cid' => $comment['cid']]) }}" class="text-decoration-none stretched-link">
+                                @if ($comment['isBrief'])
+                                    {{ fs_lang('contentFull') }}
+                                @endif
+                            </a>
+                        </p>
+                    @endif
             @endif
         </div>
     </section>
@@ -143,23 +143,23 @@
     @endif
 
     {{-- Files --}}
-    <section class="content-files order-3 mx-3 mt-2 d-flex align-content-start flex-wrap file-image-{{ count($sticky['files']['images']) }}">
-        @component('components.comment.section.files', [
-            'cid' => $sticky['cid'],
-            'createdDatetime' => $sticky['createdDatetime'],
-            'author' => $sticky['author'],
-            'files' => $sticky['files'],
+    <section class="content-files order-3 mx-3 mt-2 d-flex align-content-start flex-wrap file-image-{{ count($comment['files']['images']) }}">
+        @component('components.comments.sections.files', [
+            'cid' => $comment['cid'],
+            'createdDatetime' => $comment['createdDatetime'],
+            'author' => $comment['author'],
+            'files' => $comment['files'],
         ])@endcomponent
     </section>
 
     {{-- Content Extends --}}
-    @if ($sticky['extends'])
+    @if ($comment['extends'])
         <section class="content-extends order-3 mx-3">
-            @component('components.comment.section.extends', [
-                'cid' => $sticky['cid'],
-                'createdDatetime' => $sticky['createdDatetime'],
-                'author' => $sticky['author'],
-                'extends' => $sticky['extends']
+            @component('components.comments.sections.extends', [
+                'cid' => $comment['cid'],
+                'createdDatetime' => $comment['createdDatetime'],
+                'author' => $comment['author'],
+                'extends' => $comment['extends']
             ])@endcomponent
         </section>
     @endif
@@ -168,24 +168,24 @@
     <section class="interaction order-5 mt-3 mx-3">
         <div class="d-flex">
             {{-- Like --}}
-            @if ($sticky['interaction']['likeEnabled'])
+            @if ($comment['interaction']['likeEnabled'])
                 <div class="interaction-box">
-                    @component('components.comment.mark.like', [
-                        'cid' => $sticky['cid'],
-                        'interaction' => $sticky['interaction'],
-                        'count' => $sticky['likeCount'],
+                    @component('components.comments.mark.like', [
+                        'cid' => $comment['cid'],
+                        'interaction' => $comment['interaction'],
+                        'count' => $comment['likeCount'],
                         'icon' => $iconLike,
                     ])@endcomponent
                 </div>
             @endif
 
             {{-- Dislike --}}
-            @if ($sticky['interaction']['dislikeEnabled'])
+            @if ($comment['interaction']['dislikeEnabled'])
                 <div class="interaction-box">
-                    @component('components.comment.mark.dislike', [
-                        'cid' => $sticky['cid'],
-                        'interaction' => $sticky['interaction'],
-                        'count' => $sticky['dislikeCount'],
+                    @component('components.comments.mark.dislike', [
+                        'cid' => $comment['cid'],
+                        'interaction' => $comment['interaction'],
+                        'count' => $comment['dislikeCount'],
                         'icon' => $iconDislike,
                     ])@endcomponent
                 </div>
@@ -200,7 +200,7 @@
                         <img src="{{ fs_theme('assets') }}images/icon-comment.png" loading="lazy">
                     @endif
                     <span class="cm-count">
-                    {{ $sticky['commentCount'] }}
+                    {{ $comment['commentCount'] }}
                     </span>
                 </a>
             </div>
@@ -214,9 +214,9 @@
                         <img src="{{ fs_theme('assets') }}images/icon-share.png" loading="lazy">
                     @endif
                 </button>
-                @component('components.comment.mark.share', [
-                    'cid' => $sticky['cid'],
-                    'url' => $sticky['url'],
+                @component('components.comments.mark.share', [
+                    'cid' => $comment['cid'],
+                    'url' => $comment['url'],
                 ])@endcomponent
             </div>
 
@@ -229,21 +229,21 @@
                         <img src="{{ fs_theme('assets') }}images/icon-more.png" loading="lazy">
                     @endif
                 </button>
-                @component('components.comment.mark.more', [
-                    'cid' => $sticky['cid'],
-                    'uid' => $sticky['author']['uid'],
-                    'controls' => $sticky['controls'],
-                    'interaction' => $sticky['interaction'],
-                    'followCount' => $sticky['followCount'],
-                    'blockCount' => $sticky['blockCount'],
-                    'manages' => $sticky['manages'],
+                @component('components.comments.mark.more', [
+                    'cid' => $comment['cid'],
+                    'uid' => $comment['author']['uid'],
+                    'controls' => $comment['controls'],
+                    'interaction' => $comment['interaction'],
+                    'followCount' => $comment['followCount'],
+                    'blockCount' => $comment['blockCount'],
+                    'manages' => $comment['manages'],
                     'viewType' => 'list',
                 ])@endcomponent
             </div>
         </div>
 
         {{-- Post Author Like Status --}}
-        @if ($sectionAuthorLiked && $sticky['interaction']['postAuthorLikeStatus'])
+        @if ($sectionAuthorLiked && $comment['interaction']['postAuthorLikeStatus'])
             <div class="post-author-liked order-5 mt-2">
                 <span class="author-badge p-1">{{ fs_lang('contentAuthorLiked') }}</span>
             </div>
@@ -251,9 +251,25 @@
 
         {{-- Comment Box --}}
         @component('components.editor.quick-publish-comment', [
-            'nickname' => $sticky['author']['nickname'],
-            'pid' => $sticky['replyToPost']['pid'] ?? null,
-            'cid' => $sticky['cid'],
+            'nickname' => $comment['author']['nickname'],
+            'pid' => $comment['replyToPost']['pid'] ?? null,
+            'cid' => $comment['cid'],
         ])@endcomponent
     </section>
+
+    {{-- Comment Preview --}}
+    @if ($comment['previewComments'])
+        @component('components.comments.sections.preview', [
+            'cid' => $comment['cid'],
+            'commentCount' => $comment['commentCount'],
+            'previewComments' => $comment['previewComments'],
+        ])@endcomponent
+    @endif
+
+    {{-- Post Preview --}}
+    @if ($comment['replyToPost'])
+        @component('components.comments.sections.post', [
+            'post' => $comment['replyToPost'],
+        ])@endcomponent
+    @endif
 </div>

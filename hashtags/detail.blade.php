@@ -15,13 +15,13 @@
             {{-- Middle --}}
             <div class="col-md-8 col-lg-6 pt-4 pt-lg-0">
                 <div class="card mb-3">
-                    @component('components.hashtag.detail', compact('hashtag'))@endcomponent
+                    @component('components.hashtags.detail', compact('hashtag'))@endcomponent
                 </div>
 
                 {{-- List --}}
                 <div class="clearfix" id="fresns-list-container">
                     @foreach($posts as $post)
-                        @component('components.post.list', compact('post'))@endcomponent
+                        @component('components.posts.list', compact('post'))@endcomponent
 
                         @if (! $loop->last)
                             <hr>

@@ -1,26 +1,22 @@
-<article class="d-flex">
+<article class="d-flex mt-3">
     @if ($group['cover'])
         <section class="flex-shrink-0">
-            <a href="{{ route('fresns.group.detail', ['gid' => $group['gid']]) }}"><img src="{{ $group['cover'] }}" loading="lazy" alt="{{ $group['name'] }}" class="rounded list-cover"></a>
+            <img src="{{ $group['cover'] }}" loading="lazy" alt="{{ $group['name'] }}" class="rounded list-cover">
         </section>
     @endif
     <div class="flex-grow-1 ms-3">
         <header class="d-lg-flex">
-            <section class="d-flex">
-                <a href="{{ route('fresns.group.detail', ['gid' => $group['gid']]) }}" class="text-nowrap overflow-hidden list-name fw-medium">{{ $group['name'] }}</a>
+            <section class="d-flex mb-1 mb-lg-0">
+                <b>{{ $group['name'] }}</b>
                 @if ($group['recommend'])
-                    <img src="{{ fs_theme('assets') }}images/icon-recommend.png" class="list-recommend ms-1" data-bs-toggle="tooltip" data-bs-placement="top" title="Recommend" loading="lazy" alt="Recommend">
+                    <img src="{{ fs_theme('assets') }}images/icon-recommend.png" class="list-recommend" loading="lazy" alt="{{ fs_lang('contentRecommend') }}">
                 @endif
-                <div class="badge-bg-info ms-2">
-                    <span class="badge rounded-pill">{{ $group['postCount'] }} {{ fs_config('post_name') }}</span>
-                    <span class="badge rounded-pill">{{ $group['postDigestCount'] }} {{ fs_lang('contentDigest') }}</span>
-                </div>
             </section>
 
-            <section class="list-btn ms-auto">
+            <section class="list-btn ms-auto d-none d-lg-block">
                 {{-- Like --}}
                 @if ($group['interaction']['likeEnabled'])
-                    @component('components.group.mark.like', [
+                    @component('components.groups.mark.like', [
                         'gid' => $group['gid'],
                         'interaction' => $group['interaction'],
                         'count' => $group['likeCount'],
@@ -29,7 +25,7 @@
 
                 {{-- Dislike --}}
                 @if ($group['interaction']['dislikeEnabled'])
-                    @component('components.group.mark.dislike', [
+                    @component('components.groups.mark.dislike', [
                         'gid' => $group['gid'],
                         'interaction' => $group['interaction'],
                         'count' => $group['dislikeCount'],
@@ -38,7 +34,7 @@
 
                 {{-- Follow --}}
                 @if ($group['interaction']['followEnabled'])
-                    @component('components.group.mark.follow', [
+                    @component('components.groups.mark.follow', [
                         'gid' => $group['gid'],
                         'name' => $group['name'],
                         'interaction' => $group['interaction'],
@@ -48,7 +44,7 @@
 
                 {{-- Block --}}
                 @if ($group['interaction']['blockEnabled'])
-                    @component('components.group.mark.block', [
+                    @component('components.groups.mark.block', [
                         'gid' => $group['gid'],
                         'interaction' => $group['interaction'],
                         'count' => $group['blockCount'],
@@ -57,6 +53,13 @@
             </section>
         </header>
 
-        <section class="fs-7 mt-1 text-secondary pe-4">{!! nl2br($group['description']) !!}</section>
+        <section class="badge-bg-info">
+            <span class="badge rounded-pill">{{ $group['postCount'] }} {{ fs_config('post_name') }}</span>
+            <span class="badge rounded-pill">{{ $group['postDigestCount'] }} {{ fs_lang('contentDigest') }}</span>
+        </section>
+
+        <section class="fs-7 mt-2" id="admins"></section>
     </div>
 </article>
+
+<section class="fs-7 text-secondary lh-base p-3">{!! nl2br($group['description']) !!}</section>

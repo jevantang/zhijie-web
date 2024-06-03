@@ -28,7 +28,7 @@
                             <div class="tab-pane fade @if ($loop->first) show active @endif" id="v-pills-{{ $tree['gid'] }}" role="tabpanel" aria-labelledby="v-pills-{{ $tree['gid'] }}-tab" tabindex="0">
                                 <div class="card mb-5 py-4">
                                     @foreach($tree['groups'] ?? [] as $group)
-                                        @component('components.group.list', compact('group'))@endcomponent
+                                        @component('components.groups.list', compact('group'))@endcomponent
                                         @if (! $loop->last)
                                             <hr style="margin: 1.2rem 0">
                                         @endif

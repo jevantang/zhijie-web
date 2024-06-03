@@ -17,7 +17,7 @@
     {{-- Follow --}}
     @if ($interaction['followEnabled'])
         <li>
-            @component('components.comment.mark.follow', [
+            @component('components.comments.mark.follow', [
                 'cid' => $cid,
                 'interaction' => $interaction,
                 'count' => $followCount,
@@ -28,7 +28,7 @@
     {{-- Block --}}
     @if ($interaction['blockEnabled'])
         <li>
-            @component('components.comment.mark.block', [
+            @component('components.comments.mark.block', [
                 'cid' => $cid,
                 'interaction' => $interaction,
                 'count' => $blockCount,

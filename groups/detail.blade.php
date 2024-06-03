@@ -10,7 +10,7 @@
             {{-- Left Sidebar --}}
             <div class="col-lg-3">
                 <div class="card border-0 shadow-sm mt-4 mt-lg-0">
-                    @component('components.group.detail', compact('group'))@endcomponent
+                    @component('components.groups.detail', compact('group'))@endcomponent
                 </div>
 
                 <div class="d-none d-lg-block">
@@ -53,7 +53,7 @@
                 @if (fs_sticky_posts($group['gid']))
                     <div class="list-group mb-3">
                         @foreach(fs_sticky_posts($group['gid']) as $sticky)
-                            @component('components.post.sticky', compact('sticky'))@endcomponent
+                            @component('components.posts.sticky', compact('sticky'))@endcomponent
                         @endforeach
                     </div>
                 @endif
@@ -65,7 +65,7 @@
                         {{-- List --}}
                         <div class="clearfix" id="fresns-list-container">
                             @foreach($posts as $post)
-                                @component('components.post.list', compact('post'))@endcomponent
+                                @component('components.posts.list', compact('post'))@endcomponent
                             @endforeach
                         </div>
 

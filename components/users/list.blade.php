@@ -54,7 +54,7 @@
         <footer class="interaction-btn">
             {{-- Like --}}
             @if ($user['interaction']['likeEnabled'])
-                @component('components.user.mark.like', [
+                @component('components.users.mark.like', [
                     'uid' => $user['uid'],
                     'interaction' => $user['interaction'],
                     'count' => $user['stats']['likerCount']
@@ -63,7 +63,7 @@
 
             {{-- Dislike --}}
             @if ($user['interaction']['dislikeEnabled'])
-                @component('components.user.mark.dislike', [
+                @component('components.users.mark.dislike', [
                     'uid' => $user['uid'],
                     'interaction' => $user['interaction'],
                     'count' => $user['stats']['dislikerCount']
@@ -72,7 +72,7 @@
 
             {{-- Follow --}}
             @if ($user['interaction']['followEnabled'])
-                @component('components.user.mark.follow', [
+                @component('components.users.mark.follow', [
                     'uid' => $user['uid'],
                     'interaction' => $user['interaction'],
                     'count' => $user['stats']['followerCount']
@@ -81,7 +81,7 @@
 
             {{-- Block --}}
             @if ($user['interaction']['blockEnabled'])
-                @component('components.user.mark.block', [
+                @component('components.users.mark.block', [
                     'uid' => $user['uid'],
                     'interaction' => $user['interaction'],
                     'count' => $user['stats']['blockerCount']

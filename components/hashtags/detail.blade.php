@@ -17,7 +17,7 @@
             <section class="list-btn ms-auto">
                 {{-- Like --}}
                 @if ($hashtag['interaction']['likeEnabled'])
-                    @component('components.hashtag.mark.like', [
+                    @component('components.hashtags.mark.like', [
                         'htid' => $hashtag['htid'],
                         'interaction' => $hashtag['interaction'],
                         'count' => $hashtag['likeCount'],
@@ -26,7 +26,7 @@
 
                 {{-- Dislike --}}
                 @if ($hashtag['interaction']['dislikeEnabled'])
-                    @component('components.hashtag.mark.dislike', [
+                    @component('components.hashtags.mark.dislike', [
                         'htid' => $hashtag['htid'],
                         'interaction' => $hashtag['interaction'],
                         'count' => $hashtag['dislikeCount'],
@@ -35,7 +35,7 @@
 
                 {{-- Follow --}}
                 @if ($hashtag['interaction']['followEnabled'])
-                    @component('components.hashtag.mark.follow', [
+                    @component('components.hashtags.mark.follow', [
                         'htid' => $hashtag['htid'],
                         'interaction' => $hashtag['interaction'],
                         'count' => $hashtag['followCount'],
@@ -44,7 +44,7 @@
 
                 {{-- Block --}}
                 @if ($hashtag['interaction']['blockEnabled'])
-                    @component('components.hashtag.mark.block', [
+                    @component('components.hashtags.mark.block', [
                         'htid' => $hashtag['htid'],
                         'interaction' => $hashtag['interaction'],
                         'count' => $hashtag['blockCount'],

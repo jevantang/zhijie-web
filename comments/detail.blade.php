@@ -15,7 +15,7 @@
             {{-- Middle --}}
             <div class="col-md-8 col-lg-6 pt-4 pt-lg-0">
                 <div class="card shadow-sm mb-3">
-                    @component('components.comment.detail', compact('comment'))@endcomponent
+                    @component('components.comments.detail', compact('comment'))@endcomponent
                 </div>
 
                 <article class="card clearfix" id="fresns-list-container">
@@ -24,7 +24,7 @@
                     </div>
 
                     @foreach($comments as $comment)
-                        @component('components.comment.list', [
+                        @component('components.comments.list', [
                             'comment' => $comment,
                             'detailLink' => false,
                             'sectionAuthorLiked' => true,
